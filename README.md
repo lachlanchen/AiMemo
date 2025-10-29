@@ -63,6 +63,7 @@ pip install -e .
 # optional: set APP_PORT (defaults to 8787)
 # optional: update CORS_ALLOW_ORIGINS for mobile/web clients
 # optional: BACKEND_PUBLIC_URL / FRONTEND_PUBLIC_URL (defaults use ai-backend.lazying.art & ai.lazying.art)
+# optional: set ANDROID_HOME / ANDROID_SDK_ROOT (used by dev-session.sh to expose adb/emulator)
 # required: set JWT_SECRET (use a long random string) and optionally JWT_EXP_MINUTES
 alembic upgrade head  # (after migration scripts are added)
 python -m aisecretary.app
