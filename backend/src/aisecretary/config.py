@@ -26,6 +26,8 @@ class Settings(BaseSettings):
     postgres_password: str = Field(default="postgres", alias="POSTGRES_PASSWORD")
 
     database_ai_url: str | None = Field(default=None, alias="DATABASE_AI_URL")
+    backend_public_url: str | None = Field(default=None, alias="BACKEND_PUBLIC_URL")
+    frontend_public_url: str | None = Field(default=None, alias="FRONTEND_PUBLIC_URL")
 
     cors_allow_origins: list[str] = Field(default_factory=lambda: ["*"], alias="CORS_ALLOW_ORIGINS")
     cors_allow_headers: str = Field(

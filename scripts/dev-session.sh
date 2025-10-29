@@ -7,7 +7,7 @@ CONDA_SH="/home/lachlan/miniconda3/etc/profile.d/conda.sh"
 
 BACKEND="cd '$PROJECT_ROOT/backend' && source $CONDA_SH && conda activate ai && python -m aisecretary.app"
 BACKEND_NGROK="ngrok http --url=ai-backend.lazying.art 8787"
-FRONTEND="cd '$PROJECT_ROOT/app' && EXPO_PUBLIC_API_URL=http://127.0.0.1:8787 npx expo start --web --port 8091"
+FRONTEND="cd '$PROJECT_ROOT/app' && EXPO_PUBLIC_API_URL=https://ai-backend.lazying.art npx expo start --web --port 8091"
 FRONTEND_NGROK="ngrok http --url=ai.lazying.art 8091"
 
 # helper to send a command and optionally run it

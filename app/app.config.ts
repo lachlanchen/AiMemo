@@ -1,7 +1,7 @@
 import { ConfigContext, ExpoConfig } from "expo/config";
 
 export default ({ config }: ConfigContext): ExpoConfig => {
-  const apiUrl = process.env.EXPO_PUBLIC_API_URL ?? "http://localhost:8787";
+  const apiUrl = process.env.EXPO_PUBLIC_API_URL ?? "https://ai-backend.lazying.art";
 
   return {
     ...config,

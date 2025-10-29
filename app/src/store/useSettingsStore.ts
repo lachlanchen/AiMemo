@@ -5,7 +5,7 @@ type SettingsState = {
   setApiUrl: (url: string) => void;
 };
 
-const defaultApiUrl = process.env.EXPO_PUBLIC_API_URL ?? "http://localhost:8787";
+const defaultApiUrl = process.env.EXPO_PUBLIC_API_URL ?? "https://ai-backend.lazying.art";
 
 export const useSettingsStore = create<SettingsState>((set) => ({
   apiUrl: defaultApiUrl,
