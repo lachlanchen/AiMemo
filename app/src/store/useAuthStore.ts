@@ -1,4 +1,5 @@
 import * as SecureStore from "expo-secure-store";
+import { Platform } from "react-native";
 import { create } from "zustand";
 
 import { apiClient, AuthSuccess } from "../api/client";
@@ -22,15 +23,61 @@ type AuthState = {
 const TOKEN_KEY = "aisecretary.auth.token";
 const USER_KEY = "aisecretary.auth.user";
 
+let secureStoreAvailable: boolean | null = null;
+
+async function isSecureStoreAvailable(): Promise<boolean> {
+  if (secureStoreAvailable !== null) {
+    return secureStoreAvailable;
+  }
+  try {
+    secureStoreAvailable = await SecureStore.isAvailableAsync();
+  } catch (error) {
+    console.warn("SecureStore availability check failed", error);
+    secureStoreAvailable = false;
+  }
+  return secureStoreAvailable;
+}
+
+const useWebStorage = () => typeof window !== "undefined" && Platform.OS === "web";
+
+async function storageSet(key: string, value: string): Promise<void> {
+  if (await isSecureStoreAvailable()) {
+    await SecureStore.setItemAsync(key, value);
+    return;
+  }
+  if (useWebStorage()) {
+    window.localStorage.setItem(key, value);
+  }
+}
+
+async function storageGet(key: string): Promise<string | null> {
+  if (await isSecureStoreAvailable()) {
+    return SecureStore.getItemAsync(key);
+  }
+  if (useWebStorage()) {
+    return window.localStorage.getItem(key);
+  }
+  return null;
+}
+
+async function storageDelete(key: string): Promise<void> {
+  if (await isSecureStoreAvailable()) {
+    await SecureStore.deleteItemAsync(key);
+    return;
+  }
+  if (useWebStorage()) {
+    window.localStorage.removeItem(key);
+  }
+}
+
 async function persistSession(token: string, user: User): Promise<void> {
-  await Promise.all([
-    SecureStore.setItemAsync(TOKEN_KEY, token),
-    SecureStore.setItemAsync(USER_KEY, JSON.stringify(user)),
-  ]);
+  await storageSet(TOKEN_KEY, token);
+  await storageSet(USER_KEY, JSON.stringify(user));
 }
 
 async function clearSession(): Promise<void> {
-  await Promise.all([SecureStore.deleteItemAsync(TOKEN_KEY), SecureStore.deleteItemAsync(USER_KEY)]);
+  await storageDelete(TOKEN_KEY);
+  await storageDelete(USER_KEY);
 }
 
 function assertSuccess(result: { data: AuthSuccess | null; error: Error | null }): AuthSuccess {
@@ -46,10 +93,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
   isAuthenticated: false,
   hydrate: async () => {
     try {
-      const [token, userJson] = await Promise.all([
-        SecureStore.getItemAsync(TOKEN_KEY),
-        SecureStore.getItemAsync(USER_KEY),
-      ]);
+      const [token, userJson] = await Promise.all([storageGet(TOKEN_KEY), storageGet(USER_KEY)]);
 
       if (token && userJson) {
         const parsedUser = JSON.parse(userJson) as User;
