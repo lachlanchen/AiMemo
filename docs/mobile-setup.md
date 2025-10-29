@@ -14,7 +14,7 @@ Follow these platform-specific checklists before you start building, testing, or
     ```bash
     export ANDROID_SDK_ROOT=$HOME/Android/Sdk
     export ANDROID_HOME=$ANDROID_SDK_ROOT
-    export PATH=$PATH:$ANDROID_SDK_ROOT/emulator:$ANDROID_SDK_ROOT/platform-tools
+    export PATH=$PATH:$ANDROID_SDK_ROOT/emulator:$ANDROID_SDK_ROOT/platform-tools:$ANDROID_SDK_ROOT/cmdline-tools/latest/bin
     ```
 - **Emulator setup**
   - Through Android Studio’s Device Manager, create an Android 13+ virtual device (Pixel recommended).
@@ -51,4 +51,4 @@ Follow these platform-specific checklists before you start building, testing, or
   - Register devices in the Apple Developer portal.
   - Install the Expo Go app via TestFlight or build a development client with `eas build --profile development --platform ios`.
 
-Keep this document updated as your toolchain evolves (e.g., adding EAS Build/Submit configurations or CI integration).***
+Keep this document updated as your toolchain evolves (e.g., adding EAS Build/Submit configurations or CI integration).
