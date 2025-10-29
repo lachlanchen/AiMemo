@@ -14,7 +14,7 @@ from tornado.log import enable_pretty_logging
 
 from .config import settings
 from .handlers import get_routes
-from .services import CalendarService, EmailService
+from .services import AuthService, CalendarService, EmailService
 from .storage import Database
 
 
@@ -23,6 +23,7 @@ def build_application() -> Application:
     database = Database(settings)
     email_service = EmailService(settings)
     calendar_service = CalendarService(settings)
+    auth_service = AuthService(database, settings)
 
     routes = get_routes()
 
@@ -33,6 +34,7 @@ def build_application() -> Application:
         db=database,
         email_service=email_service,
         calendar_service=calendar_service,
+        auth_service=auth_service,
         cors_allow_origins=settings.cors_allow_origins,
         cors_allow_headers=settings.cors_allow_headers,
         cors_allow_methods=settings.cors_allow_methods,
@@ -42,6 +44,8 @@ def build_application() -> Application:
 
 async def _run_server() -> None:
     app = build_application()
+    database: Database = app.settings["db"]
+    await database.create_all()
     server = HTTPServer(app)
     server.bind(settings.port, address=settings.host)
     server.start()

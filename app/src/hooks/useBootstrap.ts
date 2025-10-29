@@ -8,6 +8,8 @@ import {
   Inter_700Bold,
 } from "@expo-google-fonts/inter";
 
+import { useAuthStore } from "../store/useAuthStore";
+
 export const useBootstrap = () => {
   const [isHydrated, setHydrated] = useState(false);
   const [fontsLoaded] = useFonts({
@@ -21,8 +23,8 @@ export const useBootstrap = () => {
     let isMounted = true;
 
     const hydrate = async () => {
-      // Placeholder for loading persisted auth tokens or preferences.
-      await Promise.resolve();
+      const hydrateAuth = useAuthStore.getState().hydrate;
+      await hydrateAuth();
       if (isMounted) {
         setHydrated(true);
       }

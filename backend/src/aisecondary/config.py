@@ -36,6 +36,9 @@ class Settings(BaseSettings):
     )
     cors_allow_credentials: bool = Field(default=True, alias="CORS_ALLOW_CREDENTIALS")
 
+    jwt_secret: str = Field(alias="JWT_SECRET")
+    jwt_exp_minutes: int = Field(default=60, alias="JWT_EXP_MINUTES")
+
     echo: bool = Field(default=False, alias="SQL_ECHO")
 
     @computed_field  # type: ignore[misc]
@@ -60,7 +63,7 @@ class Settings(BaseSettings):
 @lru_cache
 def get_settings() -> Settings:
     """Load settings once and cache for reuse."""
-    env_path = Path(__file__).resolve().parents[4] / ".env"
+    env_path = Path(__file__).resolve().parents[3] / ".env"
     if env_path.exists():
         return Settings(_env_file=env_path)
     return Settings()

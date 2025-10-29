@@ -3,9 +3,13 @@ pyproject.toml
 src/aisecondary/__init__.py
 src/aisecondary/app.py
 src/aisecondary/config.py
+src/aisecondary/models.py
 src/aisecondary/handlers/__init__.py
+src/aisecondary/handlers/auth.py
+src/aisecondary/handlers/base.py
 src/aisecondary/handlers/health.py
 src/aisecondary/services/__init__.py
+src/aisecondary/services/auth.py
 src/aisecondary/services/calendar.py
 src/aisecondary/services/email.py
 src/aisecondary/storage/__init__.py

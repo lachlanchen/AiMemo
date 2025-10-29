@@ -72,7 +72,9 @@ export const SettingsScreen = () => {
           </View>
           <Pressable
             style={({ pressed }) => [styles.logoutButton, pressed ? styles.logoutPressed : null]}
-            onPress={logout}
+            onPress={async () => {
+              await logout();
+            }}
           >
             <Feather name="log-out" size={16} color="#fff" />
             <Text style={styles.logoutLabel}>Sign out</Text>

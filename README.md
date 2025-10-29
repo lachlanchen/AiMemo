@@ -62,6 +62,7 @@ pip install -e .
 # ensure .env includes DATABASE_AI_URL pointing at your Postgres instance
 # optional: set APP_PORT (defaults to 8787)
 # optional: update CORS_ALLOW_ORIGINS for mobile/web clients
+# required: set JWT_SECRET (use a long random string) and optionally JWT_EXP_MINUTES
 alembic upgrade head  # (after migration scripts are added)
 python -m aisecondary.app
 ```
@@ -98,12 +99,30 @@ APP_PORT=8787 \
 FRONTEND_PORT=8091 \
 NGROK_BACKEND_DOMAIN=ai-backend.lazying.art \
 NGROK_FRONTEND_DOMAIN=ai.lazying.art \
-ENABLE_FRONTEND=1 \
-ENABLE_FRONTEND_NGROK=1 \
+START_BACKEND=1 \
+START_BACKEND_NGROK=1 \
+START_FRONTEND=1 \
+START_FRONTEND_NGROK=1 \
 ./scripts/dev-session.sh
 ```
 
-Set `ENABLE_FRONTEND=0` to skip Expo, or `ENABLE_FRONTEND_NGROK=0` to skip the web tunnel. Exit a pane with `Ctrl+C`; detach the tmux session with `Ctrl+B` followed by `D`.
+Set individual `START_*` flags to `0` to prefill commands without executing them (e.g. `START_BACKEND=0` to leave the server command ready but stopped). Exit a pane with `Ctrl+C`; detach the tmux session with `Ctrl+B` followed by `D`.
+
+Example: launch only the ngrok tunnels while leaving backend/frontend commands queued:
+
+```bash
+START_BACKEND=0 \
+START_FRONTEND=0 \
+./scripts/dev-session.sh
+```
+
+### Auth API Endpoints
+
+- `POST /auth/register` — payload `{ "email": "user@example.com", "password": "hunter2" }`; returns `{ token, user }`.
+- `POST /auth/login` — same payload/response as register.
+- `POST /auth/forgot-password` — payload `{ "email": "user@example.com" }`; always returns `202` with a generic message.
+
+All responses include a JWT signed with `JWT_SECRET`; clients should store the token securely (the Expo app uses SecureStore).
 
 ## Next Steps
 

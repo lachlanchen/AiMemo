@@ -8,6 +8,7 @@ from typing import AsyncIterator
 from sqlalchemy.ext.asyncio import AsyncEngine, AsyncSession, async_sessionmaker, create_async_engine
 
 from ..config import Settings
+from ..models import Base
 
 
 class Database:
@@ -34,6 +35,11 @@ class Database:
         self._ensure_engine()
         assert self._engine is not None
         return self._engine
+
+    async def create_all(self) -> None:
+        """Create database tables if they do not exist."""
+        async with self.engine.begin() as conn:
+            await conn.run_sync(Base.metadata.create_all)
 
     @asynccontextmanager
     async def session(self) -> AsyncIterator[AsyncSession]:

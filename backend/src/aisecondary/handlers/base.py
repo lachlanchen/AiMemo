@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import json
 from typing import Any, Iterable
 
 import structlog
@@ -12,6 +13,7 @@ class BaseHandler(RequestHandler):
     """Adds CORS handling and structured request logging."""
 
     _logger: structlog.stdlib.BoundLogger | None = None
+    _json_body: dict[str, Any] | None = None
 
     @property
     def allowed_origins(self) -> Iterable[str]:
@@ -62,6 +64,31 @@ class BaseHandler(RequestHandler):
             remote_ip=request.remote_ip,
         )
         self._logger.info("request.start", headers=dict(request.headers))
+
+        if request.body:
+            content_type = request.headers.get("Content-Type", "")
+            if "application/json" in content_type:
+                try:
+                    self._json_body = json.loads(request.body.decode("utf-8"))
+                except json.JSONDecodeError as exc:
+                    self._logger.warning("request.json_decode_error", error=str(exc))
+                    self.send_error(400, reason="Invalid JSON payload")
+
+    def write_error(self, status_code: int, **kwargs: Any) -> None:
+        """Return JSON error responses."""
+        message = kwargs.get("reason") or self._reason
+        self.set_header("Content-Type", "application/json")
+        self.finish(json.dumps({"error": message, "status": status_code}))
+
+    def json_body(self) -> dict[str, Any]:
+        """Return the parsed JSON body or an empty dict."""
+        return self._json_body or {}
+
+    def write_json(self, status: int = 200, **payload: Any) -> None:
+        """Serialize a response as JSON."""
+        self.set_header("Content-Type", "application/json")
+        self.set_status(status)
+        self.finish(json.dumps(payload))
 
     def on_finish(self) -> None:
         """Log response metadata after the request concludes."""

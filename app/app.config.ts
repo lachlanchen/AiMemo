@@ -25,6 +25,7 @@ export default ({ config }: ConfigContext): ExpoConfig => {
     web: {
       bundler: "metro",
     },
+    plugins: ["expo-secure-store"],
     extra: {
       ...config.extra,
       apiUrl,
