@@ -30,7 +30,7 @@ AISecretary is an email and calendar assistant that ingests incoming messages, p
 ├── backend/                 # Tornado API service
 │   ├── pyproject.toml
 │   └── src/
-│       └── aisecondary/
+│       └── aisecretary/
 │           ├── __init__.py
 │           ├── app.py       # Tornado entrypoint
 │           ├── config.py    # Pydantic settings loader
@@ -64,7 +64,7 @@ pip install -e .
 # optional: update CORS_ALLOW_ORIGINS for mobile/web clients
 # required: set JWT_SECRET (use a long random string) and optionally JWT_EXP_MINUTES
 alembic upgrade head  # (after migration scripts are added)
-python -m aisecondary.app
+python -m aisecretary.app
 ```
 
 ### Frontend
@@ -85,12 +85,12 @@ conda activate ai
 ./scripts/dev-session.sh
 ```
 
-The script opens a tmux session with up to four panes:
+The script opens a tmux session arranged as follows (top-left → bottom-right):
 
-- backend service (`python -m aisecondary.app`)
+- backend service command pretyped (`python -m aisecretary.app`)
 - backend ngrok tunnel (defaults to `ai-backend.lazying.art`, hitting `APP_PORT`)
-- Expo web dev server (`npx expo start --web --port FRONTEND_PORT`)
-- optional web ngrok tunnel (defaults to `ai.lazying.art`)
+- frontend ngrok tunnel (defaults to `ai.lazying.art`)
+- Expo web dev server command pretyped (`npx expo start --web --port FRONTEND_PORT`)
 
 Environment overrides:
 
@@ -106,7 +106,7 @@ START_FRONTEND_NGROK=1 \
 ./scripts/dev-session.sh
 ```
 
-Set individual `START_*` flags to `0` to prefill commands without executing them (e.g. `START_BACKEND=0` to leave the server command ready but stopped). Exit a pane with `Ctrl+C`; detach the tmux session with `Ctrl+B` followed by `D`.
+By default the backend/app panes are prefilled but paused, while both ngrok tunnels start automatically. Set any `START_*` flag to `1` if you want the command to auto-run. Exit a pane with `Ctrl+C`; detach the tmux session with `Ctrl+B` followed by `D`.
 
 Example: launch only the ngrok tunnels while leaving backend/frontend commands queued:
 

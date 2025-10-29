@@ -17,10 +17,10 @@ export default ({ config }: ConfigContext): ExpoConfig => {
     assetBundlePatterns: ["**/*"],
     ios: {
       supportsTablet: true,
-      bundleIdentifier: "com.lachlanchen.aisecondary",
+      bundleIdentifier: "com.lachlanchen.aisecretary",
     },
     android: {
-      package: "com.lachlanchen.aisecondary",
+      package: "com.lachlanchen.aisecretary",
     },
     web: {
       bundler: "metro",

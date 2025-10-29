@@ -1,96 +1,46 @@
 #!/usr/bin/env bash
-
 set -euo pipefail
 
-# Launch development panes for backend, frontend, and ngrok tunnels inside tmux.
-# Commands can be prefilled without execution when START_* flags are set to 0.
+SESSION="aisecretary-dev"
+PROJECT_ROOT="/home/lachlan/ProjectsLFS/EmailAssistant"
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-PROJECT_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
+BACKEND_PANE="$SESSION:0.0"
+BACKEND_NGROK_PANE="$SESSION:0.1"
+FRONTEND_PANE="$SESSION:0.2"
+FRONTEND_NGROK_PANE="$SESSION:0.3"
 
-SESSION_NAME=${AISEC_TMUX_SESSION:-aisecretary-dev}
-APP_PORT=${APP_PORT:-8787}
-FRONTEND_PORT=${FRONTEND_PORT:-8091}
+BACKEND_PYTHON_CMD="python -m aisecretary.app"
+BACKEND_NGROK="ngrok http --url=ai-backend.lazying.art 8787"
+FRONTEND_CMD="npx expo start --web --port 8091"
+FRONTEND_NGROK="ngrok http --url=ai.lazying.art 8091"
+CONDA_SH="/home/lachlan/miniconda3/etc/profile.d/conda.sh"
 
-START_BACKEND=${START_BACKEND:-1}
-START_BACKEND_NGROK=${START_BACKEND_NGROK:-1}
-START_FRONTEND=${START_FRONTEND:-1}
-START_FRONTEND_NGROK=${START_FRONTEND_NGROK:-1}
+# kill existing session if present
+tmux has-session -t "$SESSION" 2>/dev/null && tmux kill-session -t "$SESSION"
 
-NGROK_BACKEND_DOMAIN=${NGROK_BACKEND_DOMAIN:-ai-backend.lazying.art}
-NGROK_FRONTEND_DOMAIN=${NGROK_FRONTEND_DOMAIN:-ai.lazying.art}
+# create base session
+tmux new-session -d -s "$SESSION" "bash"
 
-BACKEND_CMD=${BACKEND_CMD:-"python -m aisecondary.app"}
-FRONTEND_CMD=${FRONTEND_CMD:-"npx expo start --web --port ${FRONTEND_PORT}"}
-NGROK_BACKEND_CMD=${NGROK_BACKEND_CMD:-"ngrok http --url=${NGROK_BACKEND_DOMAIN} ${APP_PORT}"}
-NGROK_FRONTEND_CMD=${NGROK_FRONTEND_CMD:-"ngrok http --url=${NGROK_FRONTEND_DOMAIN} ${FRONTEND_PORT}"}
+# Pane 0: backend setup then leave python command ready
+tmux send-keys -t "$BACKEND_PANE" "cd '$PROJECT_ROOT/backend'" Enter
+tmux send-keys -t "$BACKEND_PANE" "source $CONDA_SH" Enter
+tmux send-keys -t "$BACKEND_PANE" "conda activate ai" Enter
+tmux send-keys -t "$BACKEND_PANE" "$BACKEND_PYTHON_CMD"
 
-EXPO_EXPORT="export EXPO_PUBLIC_API_URL=${EXPO_PUBLIC_API_URL:-http://127.0.0.1:${APP_PORT}}"
+# Pane 1: backend ngrok (run immediately)
+tmux split-window -h -t "$SESSION:0" "bash"
+tmux send-keys -t "$BACKEND_NGROK_PANE" "$BACKEND_NGROK" Enter
 
-require() {
-  if ! command -v "$1" >/dev/null 2>&1; then
-    echo "Missing required command: $1" >&2
-    exit 1
-  fi
-}
+# Pane 2: frontend setup then leave Expo command ready
+tmux split-window -v -t "$SESSION:0.0" "bash"
+tmux send-keys -t "$FRONTEND_PANE" "cd '$PROJECT_ROOT/app'" Enter
+tmux send-keys -t "$FRONTEND_PANE" "export EXPO_PUBLIC_API_URL=http://127.0.0.1:8787" Enter
+tmux send-keys -t "$FRONTEND_PANE" "$FRONTEND_CMD"
 
-require tmux
-if [[ "$START_BACKEND" != "0" ]]; then
-  require python
-fi
-if [[ "$START_BACKEND_NGROK" != "0" || "$START_FRONTEND_NGROK" != "0" ]]; then
-  require ngrok
-fi
-if [[ "$START_FRONTEND" != "0" ]]; then
-  require npx
-fi
+# Pane 3: frontend ngrok (run immediately)
+tmux split-window -v -t "$SESSION:0.1" "bash"
+tmux send-keys -t "$FRONTEND_NGROK_PANE" "$FRONTEND_NGROK" Enter
 
-if tmux has-session -t "${SESSION_NAME}" 2>/dev/null; then
-  echo "Attaching to existing tmux session: ${SESSION_NAME}"
-  exec tmux attach -t "${SESSION_NAME}"
-fi
-
-echo "Creating tmux session '${SESSION_NAME}'"
-
-tmux new-session -d -s "${SESSION_NAME}" "bash"
-tmux set-option -t "${SESSION_NAME}" remain-on-exit on
-
-tmux display-message -p -t "${SESSION_NAME}:0.0" &>/dev/null
-
-backend_pane=$(tmux display-message -p -t "${SESSION_NAME}:0.0" "#{pane_id}")
-tmux send-keys -t "${backend_pane}" "cd '${PROJECT_ROOT}/backend'" Enter
-tmux send-keys -t "${backend_pane}" "${BACKEND_CMD}"
-if [[ "${START_BACKEND}" != "0" ]]; then
-  tmux send-keys -t "${backend_pane}" Enter
-fi
-
-tmux split-window -h -t "${SESSION_NAME}:0" "bash"
-backend_ngrok_pane=$(tmux display-message -p -t "${SESSION_NAME}:0.1" "#{pane_id}")
-tmux send-keys -t "${backend_ngrok_pane}" "${NGROK_BACKEND_CMD}"
-if [[ "${START_BACKEND_NGROK}" != "0" ]]; then
-  tmux send-keys -t "${backend_ngrok_pane}" Enter
-fi
-
-# Frontend pane (bottom left)
-tmux select-pane -t "${backend_pane}"
-tmux split-window -v -t "${SESSION_NAME}:0.0" "bash"
-frontend_pane=$(tmux display-message -p -t "${SESSION_NAME}:0.2" "#{pane_id}")
-tmux send-keys -t "${frontend_pane}" "cd '${PROJECT_ROOT}/app'" Enter
-tmux send-keys -t "${frontend_pane}" "${EXPO_EXPORT}" Enter
-tmux send-keys -t "${frontend_pane}" "${FRONTEND_CMD}"
-if [[ "${START_FRONTEND}" != "0" ]]; then
-  tmux send-keys -t "${frontend_pane}" Enter
-fi
-
-# Frontend ngrok pane (bottom right)
-tmux select-pane -t "${backend_ngrok_pane}"
-tmux split-window -v -t "${SESSION_NAME}:0.1" "bash"
-frontend_ngrok_pane=$(tmux display-message -p -t "${SESSION_NAME}:0.3" "#{pane_id}")
-tmux send-keys -t "${frontend_ngrok_pane}" "${NGROK_FRONTEND_CMD}"
-if [[ "${START_FRONTEND_NGROK}" != "0" ]]; then
-  tmux send-keys -t "${frontend_ngrok_pane}" Enter
-fi
-
-tmux select-layout -t "${SESSION_NAME}:0" tiled
-tmux select-pane -t "${SESSION_NAME}:0.0"
-exec tmux attach -t "${SESSION_NAME}"
+# select tiled layout and attach
+tmux select-layout -t "$SESSION:0" tiled
+tmux attach -t "$SESSION"
