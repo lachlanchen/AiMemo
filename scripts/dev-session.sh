@@ -5,10 +5,19 @@ SESSION="aisecretary-dev"
 PROJECT_ROOT="/home/lachlan/ProjectsLFS/EmailAssistant"
 CONDA_SH="/home/lachlan/miniconda3/etc/profile.d/conda.sh"
 
+# shellcheck source=scripts/load-env.sh
+source "$PROJECT_ROOT/scripts/load-env.sh"
+
+BACKEND_PUBLIC_URL=${BACKEND_PUBLIC_URL:-https://ai-backend.lazying.art}
+FRONTEND_PUBLIC_URL=${FRONTEND_PUBLIC_URL:-https://ai.lazying.art}
+
+BACKEND_HOST=${BACKEND_PUBLIC_URL#*://}
+FRONTEND_HOST=${FRONTEND_PUBLIC_URL#*://}
+
 BACKEND="cd '$PROJECT_ROOT/backend' && source $CONDA_SH && conda activate ai && python -m aisecretary.app"
-BACKEND_NGROK="ngrok http --url=ai-backend.lazying.art 8787"
-FRONTEND="cd '$PROJECT_ROOT/app' && EXPO_PUBLIC_API_URL=https://ai-backend.lazying.art npx expo start --web --port 8091"
-FRONTEND_NGROK="ngrok http --url=ai.lazying.art 8091"
+BACKEND_NGROK="ngrok http --url=${BACKEND_HOST%/} 8787"
+FRONTEND="cd '$PROJECT_ROOT/app' && EXPO_PUBLIC_API_URL=$BACKEND_PUBLIC_URL npx expo start --web --port 8091"
+FRONTEND_NGROK="ngrok http --url=${FRONTEND_HOST%/} 8091"
 
 # helper to send a command and optionally run it
 send_cmd() {

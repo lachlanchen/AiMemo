@@ -1,11 +1,13 @@
 import { create } from "zustand";
 
+import { API_BASE_URL } from "../config/env";
+
 type SettingsState = {
   apiUrl: string;
   setApiUrl: (url: string) => void;
 };
 
-const defaultApiUrl = process.env.EXPO_PUBLIC_API_URL ?? "https://ai-backend.lazying.art";
+const defaultApiUrl = API_BASE_URL;
 
 export const useSettingsStore = create<SettingsState>((set) => ({
   apiUrl: defaultApiUrl,

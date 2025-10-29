@@ -1,4 +1,6 @@
-const API_URL = process.env.EXPO_PUBLIC_API_URL ?? "https://ai-backend.lazying.art";
+import { API_BASE_URL } from "../config/env";
+
+const API_URL = API_BASE_URL;
 
 export class ApiError extends Error {
   status: number;
