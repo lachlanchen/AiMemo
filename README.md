@@ -164,4 +164,4 @@ All responses include a JWT signed with `JWT_SECRET`; clients should store the t
 
 - `./scripts/dev-session.sh` loads `.env`, runs backend, Expo web, and ngrok tunnels. Use `RUN_BACKEND=0 RUN_FRONTEND=0` to prefill commands without starting them.
 - By default Expo uses `EXPO_PUBLIC_API_URL`; backend defaults to `.env`’s `BACKEND_PUBLIC_URL` if unset.
-
+ - For a complete macOS simulator walkthrough, see [`docs/mac-ios-simulator.md`](docs/mac-ios-simulator.md).
