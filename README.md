@@ -77,6 +77,15 @@ npm install
 npx expo start --tunnel   # or --ios / --android
 ```
 
+### Combined Dev Session (backend + ngrok)
+
+```bash
+conda activate ai
+./scripts/dev-session.sh
+```
+
+The script opens a tmux session with two panes: the Tornado backend (pane 1) and an ngrok tunnel (pane 2). Exit either process with `Ctrl+C`; leave the session with `Ctrl+B` followed by `D`.
+
 ## Next Steps
 
 1. Flesh out Tornado handlers for auth, email sync, and calendar management.
