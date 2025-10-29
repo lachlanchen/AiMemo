@@ -166,3 +166,4 @@ All responses include a JWT signed with `JWT_SECRET`; clients should store the t
 - By default Expo uses `EXPO_PUBLIC_API_URL`; backend defaults to `.env`’s `BACKEND_PUBLIC_URL` if unset.
 - For a complete macOS simulator walkthrough, see [`docs/mac-ios-simulator.md`](docs/mac-ios-simulator.md).
 - On macOS you can pull + launch the simulator remotely with `./scripts/run-mac-simulator.sh` (works over SSH; requires nvm & watchman as described in the doc).
+- From Ubuntu, use `./scripts/push-and-sync-mac.sh` to `git push` and immediately invoke a `git pull --ff-only` on the Mac (`MAC_HOST` / `MAC_REPO_DIR` env vars override defaults).
