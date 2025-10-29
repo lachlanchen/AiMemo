@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.py[cod]
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+
+# Node / Expo
+node_modules/
+app/.expo/
+app/dist/
+app/.expo-shared/
+
+# Env & tooling
+.env
+*.env
+.DS_Store

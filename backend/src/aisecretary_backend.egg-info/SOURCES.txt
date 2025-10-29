@@ -1,0 +1,17 @@
+README.md
+pyproject.toml
+src/aisecondary/__init__.py
+src/aisecondary/app.py
+src/aisecondary/config.py
+src/aisecondary/handlers/__init__.py
+src/aisecondary/handlers/health.py
+src/aisecondary/services/__init__.py
+src/aisecondary/services/calendar.py
+src/aisecondary/services/email.py
+src/aisecondary/storage/__init__.py
+src/aisecondary/storage/database.py
+src/aisecretary_backend.egg-info/PKG-INFO
+src/aisecretary_backend.egg-info/SOURCES.txt
+src/aisecretary_backend.egg-info/dependency_links.txt
+src/aisecretary_backend.egg-info/requires.txt
+src/aisecretary_backend.egg-info/top_level.txt
