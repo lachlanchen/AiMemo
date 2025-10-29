@@ -77,14 +77,33 @@ npm install
 npx expo start --tunnel   # or --ios / --android
 ```
 
-### Combined Dev Session (backend + ngrok)
+### Combined Dev Session (backend + web + ngrok)
 
 ```bash
 conda activate ai
 ./scripts/dev-session.sh
 ```
 
-The script opens a tmux session with two panes: the Tornado backend (pane 1) and an ngrok tunnel (pane 2). Exit either process with `Ctrl+C`; leave the session with `Ctrl+B` followed by `D`.
+The script opens a tmux session with up to four panes:
+
+- backend service (`python -m aisecondary.app`)
+- backend ngrok tunnel (defaults to `ai-backend.lazying.art`, hitting `APP_PORT`)
+- Expo web dev server (`npx expo start --web --port FRONTEND_PORT`)
+- optional web ngrok tunnel (defaults to `ai.lazying.art`)
+
+Environment overrides:
+
+```bash
+APP_PORT=8787 \
+FRONTEND_PORT=8091 \
+NGROK_BACKEND_DOMAIN=ai-backend.lazying.art \
+NGROK_FRONTEND_DOMAIN=ai.lazying.art \
+ENABLE_FRONTEND=1 \
+ENABLE_FRONTEND_NGROK=1 \
+./scripts/dev-session.sh
+```
+
+Set `ENABLE_FRONTEND=0` to skip Expo, or `ENABLE_FRONTEND_NGROK=0` to skip the web tunnel. Exit a pane with `Ctrl+C`; detach the tmux session with `Ctrl+B` followed by `D`.
 
 ## Next Steps
 
