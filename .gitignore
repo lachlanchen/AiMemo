@@ -15,3 +15,5 @@ app/.expo-shared/
 .env
 *.env
 .DS_Store
+# Local-only docs
+docs/current-environment-inventory.md
