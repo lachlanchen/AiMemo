@@ -136,7 +136,7 @@ All responses include a JWT signed with `JWT_SECRET`; clients should store the t
 2. Integrate iCloud email + CalDAV calendar via app-specific passwords.
 3. Plug in LLM workflow for message intent classification and scheduling suggestions.
 4. Build mobile/web UI flows for onboarding, conversation review, and event editing.
-5. Review `docs/mobile-setup.md` for Android/iOS tooling requirements.
+5. Review `references/mobile-setup.md` for Android/iOS tooling requirements.
 
 ### Android Setup (Ubuntu/Linux)
 
@@ -168,6 +168,6 @@ All responses include a JWT signed with `JWT_SECRET`; clients should store the t
 
 - `./scripts/dev-session.sh` loads `.env`, runs backend, Expo web, and ngrok tunnels. Use `RUN_BACKEND=0 RUN_FRONTEND=0` to prefill commands without starting them.
 - By default Expo uses `EXPO_PUBLIC_API_URL`; backend defaults to `.env`’s `BACKEND_PUBLIC_URL` if unset.
-- For a complete macOS simulator walkthrough, see [`docs/mac-ios-simulator.md`](docs/mac-ios-simulator.md).
+- For a complete macOS simulator walkthrough, see [`references/mac-ios-simulator.md`](references/mac-ios-simulator.md).
 - On macOS you can pull + launch the simulator remotely with `./scripts/run-mac-simulator.sh` (works over SSH; requires nvm & watchman as described in the doc).
 - From Ubuntu, use `./scripts/push-and-sync-mac.sh` to `git push` and immediately invoke a `git pull --ff-only` on the Mac (`MAC_HOST` / `MAC_REPO_DIR` env vars override defaults).

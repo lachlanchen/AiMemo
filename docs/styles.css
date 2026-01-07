@@ -1,0 +1,169 @@
+:root {
+  color-scheme: dark;
+  --bg: #04060c;
+  --panel: rgba(14, 16, 27, 0.85);
+  --accent: #9b8bff;
+  --accent-strong: #f57bff;
+  --text: #f4f5ff;
+  --muted: #adb0c7;
+  font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(circle at top right, rgba(155, 139, 255, 0.25), transparent 45%),
+    radial-gradient(circle at 20% 20%, rgba(245, 123, 255, 0.25), transparent 40%),
+    var(--bg);
+  color: var(--text);
+}
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  padding: 2rem clamp(1rem, 3vw, 3rem) 3rem;
+}
+
+header {
+  display: grid;
+  gap: 1.5rem;
+  background: var(--panel);
+  padding: clamp(1.5rem, 4vw, 3rem);
+  border-radius: 32px;
+  box-shadow: 0 25px 60px rgba(4, 6, 12, 0.5);
+}
+
+header .hero-logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+header .hero-logo img {
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: #000;
+}
+
+header h1 {
+  margin: 0;
+  font-size: clamp(2.1rem, 4vw, 3.8rem);
+}
+
+header p {
+  margin: 0;
+  font-size: 1.15rem;
+  color: var(--muted);
+}
+
+.cta-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.cta {
+  padding: 0.95rem 1.6rem;
+  border-radius: 999px;
+  font-weight: 600;
+  border: 1px solid transparent;
+  text-decoration: none;
+  color: inherit;
+}
+
+.cta.primary {
+  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+  color: #050205;
+}
+
+.cta.secondary {
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+section {
+  background: var(--panel);
+  border-radius: 28px;
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  box-shadow: 0 20px 60px rgba(4, 6, 12, 0.45);
+}
+
+section h2 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 1.8rem;
+}
+
+section p {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.features {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.features article {
+  background: rgba(255, 255, 255, 0.02);
+  padding: 1rem;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.features h3 {
+  margin-top: 0;
+  margin-bottom: 0.25rem;
+  font-size: 1.2rem;
+}
+
+.features p {
+  margin: 0;
+}
+
+.timeline {
+  display: grid;
+  gap: 1rem;
+}
+
+.timeline article {
+  padding: 1rem;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.timeline strong {
+  color: var(--accent-strong);
+}
+
+.footer {
+  text-align: center;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+@media (max-width: 600px) {
+  header .hero-logo img {
+    width: 44px;
+    height: 44px;
+  }
+
+  .cta {
+    flex: 1 1 100%;
+    text-align: center;
+  }
+}
