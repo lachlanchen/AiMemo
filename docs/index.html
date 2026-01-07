@@ -16,17 +16,21 @@
   <div class="page">
     <header>
       <div class="hero-top">
-        <div class="hero-logo">
-          <img src="https://lazying.art/logos/logo.png" alt="LazyingArt" />
-          <div>
-            <p
-              style="margin: 0; text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.85rem; color: var(--muted);"
-              data-i18n="domainBadge"
-            >
-              memo.lazying.art
-            </p>
-            <h1 style="margin: 0;" data-i18n="heroTitle">AiMemo — Your conversational ledger</h1>
+        <div class="hero-logo-block">
+          <div class="hero-logo">
+            <img src="https://lazying.art/logos/logo.png" alt="LazyingArt" />
+            <div>
+              <p
+                class="sr-only"
+                style="margin: 0; text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.85rem; color: var(--muted);"
+                data-i18n="domainBadge"
+              >
+                memo.lazying.art
+              </p>
+              <h1 style="margin: 0;" data-i18n="heroTitle">AiMemo — Your conversational ledger</h1>
+            </div>
           </div>
+          <div class="domain-badge" data-i18n="domainBadge">memo.lazying.art</div>
         </div>
         <div class="language-switcher">
           <select id="languageSelect" aria-label="Language">
@@ -43,7 +47,6 @@
           </select>
         </div>
       </div>
-      <div class="domain-badge" data-i18n="domainBadge">memo.lazying.art</div>
       <p data-i18n="heroDescription">
         Built from the ideas in AISecretary and IdeasGlass, AiMemo listens to emails, voice notes, and rapid chat
         updates. It stores every mention of travel plans, experiments, fitness, or expenditure in a living, queryable
