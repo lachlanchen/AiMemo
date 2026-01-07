@@ -31,8 +31,16 @@
         <div class="language-switcher">
           <label for="languageSelect">Language</label>
           <select id="languageSelect">
+            <option value="auto">Auto (detect)</option>
             <option value="en">English</option>
-            <option value="zh">中文</option>
+            <option value="zh-Hans">中文（简体）</option>
+            <option value="zh-Hant">中文（繁體）</option>
+            <option value="ja">日本語</option>
+            <option value="ko">한국어</option>
+            <option value="vi">Tiếng Việt</option>
+            <option value="ar">العربية</option>
+            <option value="fr">Français</option>
+            <option value="es">Español</option>
           </select>
         </div>
       </div>
@@ -146,35 +154,35 @@
           },
         ],
       },
-      zh: {
+      "zh-Hans": {
         domainBadge: "memo.lazying.art",
         heroTitle: "AiMemo — 你的会话账本",
         heroDescription:
-          "继承 AISecretary 与 IdeasGlass 的理念，AiMemo 监听邮件、语音笔记和快速对话。它将旅行计划、实验记录、健身与开销，保存到可查询的记忆表格中，让你随时回应并保持清晰。",
+          "继承 AISecretary 与 IdeasGlass 的理念，AiMemo 监听邮件、语音笔记和快速对话。它将旅行、实验、健身与开销，存入可查询的记忆表格，让你随时回应并掌握细节。",
         missionTitle: "目的驱动的自动化",
         missionText:
-          "AiMemo 是一个引导式 AI 秘书，将自然语言转化为结构化知识。它连接收件箱，将对话转写为表格行，并将每个目标、热量、支出与想法保存在一个可即时查询的位置。",
+          "AiMemo 是引导式 AI 秘书，将自然语言转为结构化知识。它连接收件箱，把对话写成表格行，让每个目标、热量、开销和想法都可即时查询。",
         requestAccess: "申请访问",
         readPhilosophy: "阅读理念",
         philosophyTitle: "设计逻辑",
         philosophyParagraphOne:
-          "这个仓库是 AiMemo 的起点；IdeasGlass 的 memo 项目承载了 LLM 触发与表格导出。AiMemo融合了 AISecretary 的邮箱思维、行程聚焦片段和 IdeasGlass 的记忆优先哲学，帮助你提前掌控每个计划。",
+          "这个仓库是 AiMemo 的起点；IdeasGlass 的 memo 项目承载了 LLM 触发与表格导出。AiMemo 融合 AISecretary 及 IdeasGlass 的记忆优先哲学，协助你提前掌控每个计划。",
         philosophyParagraphTwo:
-          "目标是一个将自然语言引导至精准表格的助手，保持对话清晰，并为收件箱提供可执行的洞见。memo.lazying.art 是这份设想的落脚点。",
+          "目标是一个将自然语言引至精准表格的助手，保持对话清晰，对收件箱输出可执行洞见。memo.lazying.art 便是这份愿景的落脚点。",
         footerLineOne: "Powered by Lazying Art ·",
         footerLineTwo: "连接邮件 → AiMemo，支持旅行、财务、实验室与健康管理。",
         features: [
           {
             title: "聊天入库",
-            body: "每次聊天、实验记录或旅行更新都会进入一个实时刷新的共享记忆表。",
+            body: "每次聊天、实验记录或旅行更新都会进入实时刷新的共享记忆表。",
           },
           {
             title: "记账",
-            body: "告诉 AiMemo 支出与发票，它会把数字填入可导出的账本。",
+            body: "告诉 AiMemo 支出或发票，它会把数字填入可导出的账本。",
           },
           {
             title: "健身与热量",
-            body: "追踪锻炼、餐食与热量目标，助手会总结坚持情况与建议。",
+            body: "跟踪锻炼、膳食与热量目标，助手总结坚持情况与建议。",
           },
           {
             title: "旅行与实验",
@@ -182,11 +190,11 @@
           },
           {
             title: "自然语言 → 表格",
-            body: "AiMemo 解析意图，填充列，并保持数据随时可查询或导出。",
+            body: "AiMemo 解析意图、填充列，并保持数据随时可查询或导出。",
           },
           {
             title: "AI 秘书基因",
-            body: "基于 AISecretary 的收件箱分拣概念，现聚焦于丰富的记忆摄取。",
+            body: "基于 AISecretary 的收件箱分拣概念，现专注于丰富记忆摄取。",
           },
         ],
         timeline: [
@@ -200,11 +208,445 @@
           },
           {
             label: "储存",
-            copy: "助手把简明条目写入 memo 表，维护累计数据并保存实验元信息。",
+            copy: "助手将条目写入 memo 表，维护累计数据并收录实验元信息。",
           },
           {
             label: "回应",
-            copy: "AiMemo 梳理下一步、草拟回复，并为旅行、健身与工作流提供信号。",
+            copy: "AiMemo 梳理下一步、草拟回复，并为旅行、健身及工作流提供信号。",
+          },
+        ],
+      },
+      "zh-Hant": {
+        domainBadge: "memo.lazying.art",
+        heroTitle: "AiMemo — 你的會話帳本",
+        heroDescription:
+          "承襲 AISecretary 與 IdeasGlass 的理念，AiMemo 聆聽信件、語音筆記與即時對話。它將旅程、實驗、健身與開銷記錄進可查詢的記憶表格，讓你隨時回應並掌握細節。",
+        missionTitle: "目的驅動的自動化",
+        missionText:
+          "AiMemo 是引導式 AI 秘書，將自然語言轉為結構化知識。它連接收件匣，把對話寫成表格列，讓每個目標、熱量、支出與想法都能即時查詢。",
+        requestAccess: "申請訪問",
+        readPhilosophy: "閱讀理念",
+        philosophyTitle: "設計邏輯",
+        philosophyParagraphOne:
+          "此倉庫是 AiMemo 的起點；IdeasGlass 的 memo 專案承載 LLM 觸發與表格輸出。AiMemo 結合 AISecretary 與 IdeasGlass 的記憶優先哲學，協助你提早掌握每個計畫。",
+        philosophyParagraphTwo:
+          "目標是將自然語言導至精準表格的助手，保持對話清楚，為收件匣提供可執行的洞見。memo.lazying.art 正是這份願景的落腳點。",
+        footerLineOne: "Powered by Lazying Art ·",
+        footerLineTwo: "連接郵件 → AiMemo，支持旅程、財務、實驗室與健康管理。",
+        features: [
+          {
+            title: "聊天入庫",
+            body: "每次聊天、實驗記錄或旅程更新都會寫入即時更新的共享記憶表。",
+          },
+          {
+            title: "記帳",
+            body: "告訴 AiMemo 支出或發票，它會把數字寫入可匯出的帳本。",
+          },
+          {
+            title: "健身與熱量",
+            body: "追蹤鍛鍊、餐食與熱量目標，助手會整理堅持狀況與建議。",
+          },
+          {
+            title: "旅程與實驗",
+            body: "捕捉行程、實驗觀察與里程碑，不需事後翻找筆記。",
+          },
+          {
+            title: "自然語言 → 表格",
+            body: "AiMemo 分析意圖、填充欄位，並讓資料隨時可查詢或匯出。",
+          },
+          {
+            title: "AI 秘書基因",
+            body: "源於 AISecretary 的收件匣分流概念，現專注豐富記憶攝取。",
+          },
+        ],
+        timeline: [
+          {
+            label: "觸發",
+            copy: "來自信件、語音或即時對話（微信、Teams、Messenger）透過 IdeasGlass 同步至 AiMemo。",
+          },
+          {
+            label: "理解",
+            copy: "../IdeasGlass/backend/memo 將故事規範成意圖、標籤與資料點。",
+          },
+          {
+            label: "儲存",
+            copy: "助手把條目寫入 memo 表，維持累計數據並記錄實驗元資訊。",
+          },
+          {
+            label: "回應",
+            copy: "AiMemo 梳理下一步、草擬回覆，並為旅程、健身與工作流程提供訊號。",
+          },
+        ],
+      },
+      ja: {
+        domainBadge: "memo.lazying.art",
+        heroTitle: "AiMemo — あなたの会話ログ帳",
+        heroDescription:
+          "AISecretary と IdeasGlass の発想を受け継ぎ、AiMemo はメール、音声メモ、チャットを聞き取ります。旅、実験、フィットネス、支出を記憶テーブルに残し、即座に振り返れる知識に変えます。",
+        missionTitle: "目的志向の自動化",
+        missionText:
+          "AiMemo は自然言語を構造化知識に変えるガイド付き AI 秘書です。受信箱に接続し、会話を表形式に変換、目標やカロリー、経費を即座に検索できる状態で保存します。",
+        requestAccess: "アクセスを申請",
+        readPhilosophy: "理念を読む",
+        philosophyTitle: "デザインの思想",
+        philosophyParagraphOne:
+          "このリポジトリは AiMemo の出発点であり、IdeasGlass の memo プロジェクトが LLM トリガーと表出力のコアを担っています。AiMemo は AISecretary のメール思考と IdeasGlass の記憶優先の哲学を融合し、計画を先回りする支援をします。",
+        philosophyParagraphTwo:
+          "自然言語を精密な表に導き、会話をクリアに保ち、受信箱に行動を示す洞察を提示する単一のアシスタントが目標です。memo.lazying.art はそのビジョンの本拠地です。",
+        footerLineOne: "Powered by Lazying Art ·",
+        footerLineTwo: "メールを AiMemo につなぎ、旅行・財務・実験・ウェルネスを支援します。",
+        features: [
+          {
+            title: "会話の記録",
+            body: "チャット、実験ノート、旅のアップデートはすべてリアルタイムに共有メモリテーブルへ。",
+          },
+          {
+            title: "経費管理",
+            body: "支払い・請求を伝えるだけで、エクスポート可能な台帳へ整えます。",
+          },
+          {
+            title: "フィットネス＆カロリー",
+            body: "ワークアウトや食事、カロリー目標を追いながら、継続や提案を要約します。",
+          },
+          {
+            title: "旅行＆ラボ",
+            body: "旅程や実験観察、マイルストーンをキャプチャし、あとでメモを探す必要はありません。",
+          },
+          {
+            title: "自然言語→表",
+            body: "AiMemo は意図を解析し、列を埋めてクエリ/エクスポートに即対応。",
+          },
+          {
+            title: "AI 秘書の系譜",
+            body: "AISecretary のメール振り分けから派生し、記憶の取り込みにフォーカスしました。",
+          },
+        ],
+        timeline: [
+          {
+            label: "トリガー",
+            copy: "メール、音声、チャット（WeChat/Teams/Messenger）が IdeasGlass 経由で AiMemo に複製されます。",
+          },
+          {
+            label: "理解",
+            copy: "../IdeasGlass/backend/memo がストーリーを意図・タグ・データポイントへ正規化します。",
+          },
+          {
+            label: "記録",
+            copy: "アシスタントは memo テーブルへ行を保存し、累積データや実験メタ情報を維持します。",
+          },
+          {
+            label: "応答",
+            copy: "AiMemo は次の一手を明確にし、返信案を作り、旅やフィットネス、仕事の流れへシグナルを送ります。",
+          },
+        ],
+      },
+      ko: {
+        domainBadge: "memo.lazying.art",
+        heroTitle: "AiMemo — 당신의 대화 장부",
+        heroDescription:
+          "AISecretary와 IdeasGlass에서 이어받은 AiMemo는 이메일, 음성 노트, 채팅을 청취합니다. 여행, 실험, 운동, 지출을 실시간 테이블로 저장하여 즉시 답변할 수 있는 기억을 만듭니다.",
+        missionTitle: "목적 중심 자동화",
+        missionText:
+          "AiMemo는 자연어를 구조화된 지식으로 바꾸는 안내형 AI 비서입니다. 받은편지함과 연결해 대화를 표 형식으로 바꾸고, 목표·칼로리·비용을 언제든 조회할 수 있도록 유지합니다.",
+        requestAccess: "접근 요청",
+        readPhilosophy: "철학 읽기",
+        philosophyTitle: "설계 논리",
+        philosophyParagraphOne:
+          "이 저장소는 AiMemo의 출발점이며, IdeasGlass의 memo 프로젝트는 LLM 트리거와 테이블 내보내기를 담당합니다. AiMemo는 AISecretary의 이메일 중심 설계와 IdeasGlass의 기억 우선 철학을 결합하여 계획을 앞서 챙깁니다.",
+        philosophyParagraphTwo:
+          "자연어를 정확한 테이블로 이끌고 대화를 명확히 하며 받은편지함에 실행 가능한 통찰을 제공하는 단일 어시스턴트가 목표입니다. memo.lazying.art은 그 비전을 품은 집입니다.",
+        footerLineOne: "Powered by Lazying Art ·",
+        footerLineTwo: "이메일을 AiMemo에 연결해 여행·재무·실험·웰니스 지원을 시작하세요.",
+        features: [
+          {
+            title: "대화 기록",
+            body: "채팅, 실험 노트, 여행 업데이트는 모두 실시간으로 공유 메모리 테이블에 기록됩니다.",
+          },
+          {
+            title: "지출 정리",
+            body: "지불·청구를 말하면 AiMemo가 내보낼 수 있는 장부로 정리합니다.",
+          },
+          {
+            title: "운동 & 칼로리",
+            body: "운동, 식사, 칼로리 목표를 추적하며 꾸준함과 추천을 요약합니다.",
+          },
+          {
+            title: "여행과 연구",
+            body: "여행 일정, 실험 관찰, 마일스톤을 캡처하므로 메모를 뒤질 필요가 없습니다.",
+          },
+          {
+            title: "자연어 → 테이블",
+            body: "AiMemo는 의도를 분석하고 열을 채워 쿼리 또는 내보내기에 준비합니다.",
+          },
+          {
+            title: "AI 비서 DNA",
+            body: "AISecretary의 받은편지함 분류 개념을 이어받아 기억 수집에 집중합니다.",
+          },
+        ],
+        timeline: [
+          {
+            label: "트리거",
+            copy: "이메일, 음성, 채팅(WeChat/Teams/Messenger)이 IdeasGlass를 통해 AiMemo로 복제됩니다.",
+          },
+          {
+            label: "해석",
+            copy: "../IdeasGlass/backend/memo가 이야기를 의도, 태그, 데이터로 정규화합니다.",
+          },
+          {
+            label: "저장",
+            copy: "어시스턴트는 memo 테이블에 행을 쓰고 누적 데이터와 실험 메타정보를 유지합니다.",
+          },
+          {
+            label: "응답",
+            copy: "AiMemo는 다음 단계와 회신 초안을 만들고 여행, 운동, 작업 흐름에 신호를 보냅니다.",
+          },
+        ],
+      },
+      vi: {
+        domainBadge: "memo.lazying.art",
+        heroTitle: "AiMemo — Nhật ký hội thoại của bạn",
+        heroDescription:
+          "Lấy cảm hứng từ AISecretary và IdeasGlass, AiMemo lắng nghe email, ghi chú thoại và chat nhanh. Nó lưu các hành trình, phòng thí nghiệm, thể dục và chi tiêu vào bảng nhớ để bạn phản hồi với sự sáng suốt.",
+        missionTitle: "Tự động hóa có mục tiêu",
+        missionText:
+          "AiMemo là thư ký AI hướng dẫn, biến ngôn ngữ tự nhiên thành kiến thức có cấu trúc. Nó kết nối hộp thư, chuyển cuộc trò chuyện thành dòng bảng và giữ mọi mục tiêu, calo, chi phí và ý tưởng ở nơi bạn có thể truy vấn ngay.",
+        requestAccess: "Yêu cầu truy cập",
+        readPhilosophy: "Đọc triết lý",
+        philosophyTitle: "Logic thiết kế",
+        philosophyParagraphOne:
+          "Kho này là bàn đạp cho AiMemo; dự án memo của IdeasGlass chứa phần kích hoạt LLM và xuất bảng. AiMemo kết hợp cách tiếp cận hộp thư của AISecretary với triết lý ưu tiên bộ nhớ của IdeasGlass, giúp bạn chuẩn bị trước mọi kế hoạch.",
+        philosophyParagraphTwo:
+          "Mục tiêu là một trợ lý duy nhất dẫn ngôn ngữ tự nhiên vào bảng chính xác, giữ hội thoại rõ ràng và tăng cường hộp thư bằng cái nhìn hành động. memo.lazying.art là ngôi nhà của tầm nhìn đó.",
+        footerLineOne: "Powered by Lazying Art ·",
+        footerLineTwo: "Kết nối email → AiMemo để hỗ trợ du lịch, tài chính, thí nghiệm và chăm sóc sức khỏe.",
+        features: [
+          {
+            title: "Ghi chat vào kho",
+            body: "Mọi cuộc trò chuyện, ghi chú phòng thí nghiệm hay cập nhật chuyến đi đều vào bảng nhớ chung được cập nhật liên tục.",
+          },
+          {
+            title: "Ghi chép chi tiêu",
+            body: "Cho AiMemo biết khoản thanh toán hoặc hóa đơn và nó sẽ ghi số vào sổ kế toán có thể xuất.",
+          },
+          {
+            title: "Thể dục & calo",
+            body: "Theo dõi bài tập, bữa ăn và mục tiêu calo trong khi trợ lý tóm tắt hành trình và đề xuất.",
+          },
+          {
+            title: "Du lịch & phòng thí nghiệm",
+            body: "Ghi lại lịch trình, quan sát phòng thí nghiệm và các cột mốc mà không cần tìm lại ghi chú.",
+          },
+          {
+            title: "Ngôn ngữ tự nhiên → bảng",
+            body: "AiMemo phân tích ý định, điền cột và giữ dữ liệu sẵn sàng cho truy vấn hoặc xuất.",
+          },
+          {
+            title: "DNA thư ký AI",
+            body: "Dựa trên ý tưởng phân loại email của AISecretary, nay tập trung vào thu thập ký ức phong phú.",
+          },
+        ],
+        timeline: [
+          {
+            label: "Kích hoạt",
+            copy: "Email, ghi âm, hoặc chat nhanh (WeChat, Teams, Messenger) được phản chiếu vào AiMemo qua IdeasGlass.",
+          },
+          {
+            label: "Giải nghĩa",
+            copy: "../IdeasGlass/backend/memo chuẩn hóa câu chuyện thành ý định, nhãn và điểm dữ liệu.",
+          },
+          {
+            label: "Lưu trữ",
+            copy: "Trợ lý ghi dòng ngắn gọn vào bảng memo, giữ tổng số và siêu dữ liệu cho thí nghiệm.",
+          },
+          {
+            label: "Phản hồi",
+            copy: "AiMemo làm rõ bước tiếp theo, soạn trả lời và đưa ra tín hiệu cho hành trình, gym và công việc của bạn.",
+          },
+        ],
+      },
+      ar: {
+        domainBadge: "memo.lazying.art",
+        heroTitle: "AiMemo — دفتر محادثاتك",
+        heroDescription:
+          "مستوحى من AISecretary وIdeasGlass، يستمع AiMemo إلى البريد الإلكتروني والملاحظات الصوتية والدردشات السريعة. يحفظ الرحلات والمختبر واللياقة والمصروفات في جدول ذاكرة قابل للبحث لتستعيده عند الحاجة.",
+        missionTitle: "أتمتة هادفة",
+        missionText:
+          "AiMemo هو سكرتير ذكي يوجهك لتحويل اللغة الطبيعية إلى معرفة منظمة. يتصل بصندوق الوارد، يحول المحادثات إلى صفوف في جدول، ويحفظ كل هدف وسعرات ونفقات وفكرة في مكان سهل الاستعلام.",
+        requestAccess: "طلب الوصول",
+        readPhilosophy: "قراءة الفلسفة",
+        philosophyTitle: "منطق التصميم",
+        philosophyParagraphOne:
+          "هذا المستودع هو منصة انطلاق AiMemo؛ مشروع memo في IdeasGlass يحتضن تشغيل LLM وتصدير الجداول. يجمع AiMemo بين الخبرة البريدية لـ AISecretary وفلسفة IdeasGlass المعتمدة على الذاكرة ليُبقي خططك تحت السيطرة.",
+        philosophyParagraphTwo:
+          "الهدف هو مساعد واحد يُوجّه اللغة الطبيعية لجداول دقيقة، ويجعل الحوار واضحًا، ويُغذّي صندوق الوارد برؤى قابلة للتنفيذ. memo.lazying.art هو موطن هذه الرؤية.",
+        footerLineOne: "Powered by Lazying Art ·",
+        footerLineTwo: "ربط البريد بـ AiMemo لدعم السفر والتمويل والمختبر والبُعد الصحي.",
+        features: [
+          {
+            title: "تسجيل المحادثات",
+            body: "كل دردشة، ملاحظة مختبر، أو تحديث رحلة يُضاف إلى جدول ذاكرة مشترك يتجدد فورًا.",
+          },
+          {
+            title: "تتبع المصروفات",
+            body: "أخبر AiMemo بالمصروفات أو الفواتير وسيضع الأرقام في دفاتر قابلة للتصدير.",
+          },
+          {
+            title: "اللياقة والسعرات",
+            body: "تابع التمارين والوجبات والأهداف الحرارية بينما يلخص المساعد التقدم والتوصيات.",
+          },
+          {
+            title: "السفر والمختبر",
+            body: "التقط مسارات السفر وملاحظات المختبر والمعالم دون البحث عن الملاحظات لاحقًا.",
+          },
+          {
+            title: "من لغة طبيعية إلى جداول",
+            body: "يحلل AiMemo النوايا، يملأ الأعمدة، ويبقي البيانات جاهزة للاستعلام أو التصدير.",
+          },
+          {
+            title: "جذر سكرتير AI",
+            body: "مبني على تصنيف البريد من AISecretary، ومركّز الآن على استيعاب الذكريات الغنية.",
+          },
+        ],
+        timeline: [
+          {
+            label: "التحفيز",
+            copy: "يتم عكس البريد الصوتي أو الدردشة (WeChat/Teams/Messenger) داخل AiMemo عبر IdeasGlass.",
+          },
+          {
+            label: "الفهم",
+            copy: "../IdeasGlass/backend/memo يطبع القصة على شكل نية وعلامات ونقاط بيانات.",
+          },
+          {
+            label: "التخزين",
+            copy: "المساعد يكتب صفوفًا قصيرة في جدول memo، يحافظ على المجموعات ويخزن بيانات التجارب.",
+          },
+          {
+            label: "الاستجابة",
+            copy: "يشرح AiMemo الخطوات التالية، يصيغ الردود، ويشير إلى إشارات للسفر أو الرياضة أو العمل.",
+          },
+        ],
+      },
+      fr: {
+        domainBadge: "memo.lazying.art",
+        heroTitle: "AiMemo — Votre registre conversationnel",
+        heroDescription:
+          "Né des idées d’AISecretary et d’IdeasGlass, AiMemo écoute emails, notes vocales et discussions rapides. Il consigne voyages, labo, fitness et dépenses dans une mémoire structurée toujours consultable.",
+        missionTitle: "Automatisation intentionnée",
+        missionText:
+          "AiMemo est un secrétaire IA guidé qui transforme le langage naturel en savoir structuré. Il se connecte à votre boîte mail, transcrit les échanges en lignes de tableau et garde chaque objectif, calorie, dépense et idée instantanément interrogeables.",
+        requestAccess: "Demander l'accès",
+        readPhilosophy: "Lire la philosophie",
+        philosophyTitle: "Logique de conception",
+        philosophyParagraphOne:
+          "Ce dépôt est le point de départ d’AiMemo ; le projet memo d’IdeasGlass orchestre les déclencheurs LLM et l’export des tableaux. AiMemo mêle l’ADN courrier d’AISecretary à la philosophie mémoire-first d’IdeasGlass pour anticiper vos projets.",
+        philosophyParagraphTwo:
+          "L’objectif est un assistant unique qui canalise le langage naturel vers des tableaux précis, maintient des conversations lisibles et enrichit la boîte mail de perspectives actionnables. memo.lazying.art incarne cette vision.",
+        footerLineOne: "Powered by Lazying Art ·",
+        footerLineTwo: "Connectez votre mail → AiMemo pour voyages, finances, labo et bien-être.",
+        features: [
+          {
+            title: "Journal de conversations",
+            body: "Chaque chat, note de labo ou mise à jour de voyage alimente une table mémoire partagée qui se rafraîchit en continu.",
+          },
+          {
+            title: "Tenue de comptes",
+            body: "Indiquez vos paiements ou factures à AiMemo et il place les chiffres dans des registres exportables.",
+          },
+          {
+            title: "Fitness & calories",
+            body: "Suivez entraînements, repas et objectifs caloriques tandis que l’assistant résume vos progrès.",
+          },
+          {
+            title: "Voyage & labo",
+            body: "Capturez itinéraires, observations de labo et jalons sans avoir à ressortir vos notes.",
+          },
+          {
+            title: "Langage naturel → tableaux",
+            body: "AiMemo identifie les intentions, remplit les colonnes et garde les données prêtes pour requêtes ou exports.",
+          },
+          {
+            title: "ADN de secrétaire IA",
+            body: "Issu du tri d’emails d’AISecretary, AiMemo se concentre désormais sur une ingestion profonde de mémoire.",
+          },
+        ],
+        timeline: [
+          {
+            label: "Déclencheur",
+            copy: "Mail, note audio ou chat (WeChat / Teams / Messenger) est reflété vers AiMemo via IdeasGlass.",
+          },
+          {
+            label: "Interprétation",
+            copy: "../IdeasGlass/backend/memo normalise l’histoire en intentions, étiquettes et points de données.",
+          },
+          {
+            label: "Stockage",
+            copy: "L’assistant écrit des lignes concises dans la table memo, garde les totaux et conserve les métadonnées d’expériences.",
+          },
+          {
+            label: "Réponse",
+            copy: "AiMemo clarifie les prochaines étapes, compose des réponses et remonte des signaux pour vos voyages, séances fitness ou journée de travail.",
+          },
+        ],
+      },
+      es: {
+        domainBadge: "memo.lazying.art",
+        heroTitle: "AiMemo — Tu libro de conversaciones",
+        heroDescription:
+          "Basado en AISecretary e IdeasGlass, AiMemo escucha emails, notas de voz y chats rápidos. Guarda viajes, laboratorio, fitness y gastos en una tabla viva que puedes consultar al instante.",
+        missionTitle: "Automatización con propósito",
+        missionText:
+          "AiMemo es un secretario IA guiado que convierte lenguaje natural en conocimiento estructurado. Se conecta a tu bandeja, traduce conversaciones en filas de tabla y mantiene cada meta, caloría, gasto e idea listos para consultar.",
+        requestAccess: "Pedir acceso",
+        readPhilosophy: "Leer filosofía",
+        philosophyTitle: "Lógica de diseño",
+        philosophyParagraphOne:
+          "Este repositorio es el punto de partida de AiMemo; el proyecto memo de IdeasGlass agrupa los disparadores LLM y la exportación de tablas. AiMemo combina el enfoque inbox de AISecretary con la filosofía memory-first de IdeasGlass para adelantarse a tus planes.",
+        philosophyParagraphTwo:
+          "La meta es un asistente único que dirige lenguaje natural hacia tablas precisas, mantiene las conversaciones legibles y añade insights accionables a la bandeja. memo.lazying.art es el hogar de esa visión.",
+        footerLineOne: "Powered by Lazying Art ·",
+        footerLineTwo: "Conecta email → AiMemo para soporte en viajes, finanzas, laboratorio y bienestar.",
+        features: [
+          {
+            title: "Conversaciones almacenadas",
+            body: "Cada chat, nota de laboratorio o actualización de viaje entra a una tabla compartida que se actualiza en vivo.",
+          },
+          {
+            title: "Registro de gastos",
+            body: "Cuéntale a AiMemo sobre pagos o facturas y verá los números dentro de libros contables exportables.",
+          },
+          {
+            title: "Fitness y calorías",
+            body: "Haz seguimiento de entrenos, comidas y objetivos calóricos mientras el asistente resume tu progreso.",
+          },
+          {
+            title: "Viajes y laboratorio",
+            body: "Captura itinerarios, observaciones de laboratorio y hitos sin buscar notas después.",
+          },
+          {
+            title: "Lenguaje natural → tablas",
+            body: "AiMemo interpreta intenciones, completa columnas y mantiene tus datos listos para consultas o exportes.",
+          },
+          {
+            title: "ADN de secretario IA",
+            body: "Basado en la triage de emails de AISecretary, ahora enfocado en una rica ingestión de memoria.",
+          },
+        ],
+        timeline: [
+          {
+            label: "Disparo",
+            copy: "Email, nota de voz o chat rápido (WeChat / Teams / Messenger) se refleja en AiMemo vía IdeasGlass.",
+          },
+          {
+            label: "Interpretar",
+            copy: "../IdeasGlass/backend/memo normaliza la historia en intenciones, etiquetas y datos.",
+          },
+          {
+            label: "Almacenar",
+            copy: "El asistente escribe filas breves en la tabla memo, mantiene totales y registros de experimentos.",
+          },
+          {
+            label: "Responder",
+            copy: "AiMemo aclara próximos pasos, bosqueja respuestas y ofrece señales para viajes, gimnasio o tu jornada.",
           },
         ],
       },
@@ -239,8 +681,37 @@
         .join("");
     }
 
-    function applyLanguage(lang) {
-      const data = translations[lang] || translations.en;
+    function normalizeLang(lang) {
+      if (!lang) return "en";
+      const value = lang.toLowerCase();
+      if (value.startsWith("zh")) {
+        if (value.includes("tw") || value.includes("hk") || value.includes("hant") || value.includes("mo")) {
+          return "zh-Hant";
+        }
+        return "zh-Hans";
+      }
+      if (value.startsWith("ja")) return "ja";
+      if (value.startsWith("ko")) return "ko";
+      if (value.startsWith("vi")) return "vi";
+      if (value.startsWith("ar")) return "ar";
+      if (value.startsWith("fr")) return "fr";
+      if (value.startsWith("es")) return "es";
+      return "en";
+    }
+
+    function detectLanguage() {
+      const candidateLangs = navigator.languages || [navigator.language || "en"];
+      for (const lang of candidateLangs) {
+        const normalized = normalizeLang(lang);
+        if (translations[normalized]) {
+          return normalized;
+        }
+      }
+      return "en";
+    }
+
+    function applyLanguage(langKey) {
+      const data = translations[langKey] || translations.en;
       document.querySelectorAll("[data-i18n]").forEach((el) => {
         const key = el.getAttribute("data-i18n");
         if (key && data[key]) {
@@ -251,15 +722,24 @@
       renderTimeline(data.timeline);
     }
 
+    function handleLanguageSelection(value) {
+      const lang = value === "auto" ? detectLanguage() : value;
+      applyLanguage(lang);
+      localStorage.setItem("memoLang", value);
+      if (value === "auto") {
+        document.querySelector("#languageSelect option[value=\"auto\"]").textContent = `Auto (detect · ${lang})`;
+      } else {
+        document.querySelector("#languageSelect option[value=\"auto\"]").textContent = "Auto (detect)";
+      }
+    }
+
     document.addEventListener("DOMContentLoaded", () => {
       const select = document.getElementById("languageSelect");
-      const stored = localStorage.getItem("memoLang") || "en";
+      const stored = localStorage.getItem("memoLang") || "auto";
       select.value = stored;
-      applyLanguage(stored);
+      handleLanguageSelection(stored);
       select.addEventListener("change", (event) => {
-        const nextLang = event.target.value;
-        localStorage.setItem("memoLang", nextLang);
-        applyLanguage(nextLang);
+        handleLanguageSelection(event.target.value);
       });
     });
   </script>
