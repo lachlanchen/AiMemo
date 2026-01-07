@@ -15,98 +15,253 @@
 <body>
   <div class="page">
     <header>
-      <div class="hero-logo">
-        <img src="https://lazying.art/logos/logo.png" alt="LazyingArt" />
-        <div>
-          <p style="margin: 0; text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.85rem; color: var(--muted);">
-            memo.lazying.art
-          </p>
-          <h1 style="margin: 0;">AiMemo — Your conversational ledger</h1>
+      <div class="hero-top">
+        <div class="hero-logo">
+          <img src="https://lazying.art/logos/logo.png" alt="LazyingArt" />
+          <div>
+            <p
+              style="margin: 0; text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.85rem; color: var(--muted);"
+              data-i18n="domainBadge"
+            >
+              memo.lazying.art
+            </p>
+            <h1 style="margin: 0;" data-i18n="heroTitle">AiMemo — Your conversational ledger</h1>
+          </div>
+        </div>
+        <div class="language-switcher">
+          <label for="languageSelect">Language</label>
+          <select id="languageSelect">
+            <option value="en">English</option>
+            <option value="zh">中文</option>
+          </select>
         </div>
       </div>
-      <div class="domain-badge">memo.lazying.art</div>
-      <p>
+      <div class="domain-badge" data-i18n="domainBadge">memo.lazying.art</div>
+      <p data-i18n="heroDescription">
         Built from the ideas in AISecretary and IdeasGlass, AiMemo listens to emails, voice notes, and rapid chat
         updates. It stores every mention of travel plans, experiments, fitness, or expenditure in a living, queryable
         memory table so that you can respond with clarity and confidence.
       </p>
       <div class="cta-group">
-        <a class="cta primary" href="mailto:hello@lazying.art">Request access</a>
-        <a class="cta secondary" href="#philosophy">Read philosophy</a>
+        <a class="cta primary" href="mailto:hello@lazying.art" data-i18n="requestAccess">Request access</a>
+        <a class="cta secondary" href="#philosophy" data-i18n="readPhilosophy">Read philosophy</a>
       </div>
     </header>
 
     <section id="mission">
-      <h2>Purposeful automation</h2>
-      <p>
+      <h2 data-i18n="missionTitle">Purposeful automation</h2>
+      <p data-i18n="missionText">
         AiMemo is a guided AI secretary that turns natural language into structured knowledge. It connects to your
         inbox, translates conversations into table rows, and keeps every goal, calorie tally, expense, and idea in a
         place you can query instantly.
       </p>
-      <div class="features">
-        <article>
-          <h3>聊天入库</h3>
-          <p>Every chat, lab note, or trip update lands in a shared memory table that updates in real time.</p>
-        </article>
-        <article>
-          <h3>记账</h3>
-          <p>Tell AiMemo about payments or invoices and watch it slot the numbers into ledgers you can export.</p>
-        </article>
-        <article>
-          <h3>健身 &amp; 热量</h3>
-          <p>Track workouts, meals, and calorie targets while the assistant summarizes streaks and recommendations.</p>
-        </article>
-        <article>
-          <h3>旅行与实验室</h3>
-          <p>Capture itineraries, lab observations, and hitting milestones without hunting for notes later.</p>
-        </article>
-        <article>
-          <h3>自然语言 → 表格</h3>
-          <p>AiMemo parses intents, fills columns, and keeps your data ready for queries or exports.</p>
-        </article>
-        <article>
-          <h3>AI Secretary DNA</h3>
-          <p>Built on the proof-of-concept email triage from AISecretary; now refocused on rich memory ingestion.</p>
-        </article>
-      </div>
+      <div class="features" id="featuresGrid"></div>
     </section>
 
-    <section class="timeline">
-      <article>
-        <strong>Trigger</strong>
-        <p>Inbound email, voice note, or quick chat (WeChat, Teams, or Messenger) is mirrored into AiMemo through IdeasGlass.</p>
-      </article>
-      <article>
-        <strong>Interpret</strong>
-        <p>LLMs (current work inside <code>../IdeasGlass/backend/memo</code>) normalize the story into intent, tags, and data points.</p>
-      </article>
-      <article>
-        <strong>Store</strong>
-        <p>The assistant writes concise rows into the memo table, keeps running totals, and keeps metadata for experiments.</p>
-      </article>
-      <article>
-        <strong>Respond</strong>
-        <p>AiMemo clarifies next steps, drafts replies, and surfaces signals for your travel, gym, or workday flow.</p>
-      </article>
-    </section>
+    <section class="timeline" id="timeline"></section>
 
     <section id="philosophy">
-      <h2>Design logic</h2>
-      <p>
+      <h2 data-i18n="philosophyTitle">Design logic</h2>
+      <p data-i18n="philosophyParagraphOne">
         This repo is the launchpad for AiMemo; the IdeasGlass memo project houses the LLM trigger and table export
         work. AiMemo blends email leadership from AISecretary, itinerary-focused sections, and the memory-first
         philosophy from IdeasGlass so that you can stay ahead of every plan.
       </p>
-      <p>
+      <p data-i18n="philosophyParagraphTwo">
         The goal is a single assistant that routes natural language to precise tables, keeps conversations legible, and
         augments an inbox with actionable insight. memo.lazying.art is the home of that vision.
       </p>
     </section>
 
     <footer class="footer">
-      <p>Powered by Lazying Art · <a href="https://lazying.art" style="color: inherit;">lazying.art</a></p>
-      <p>Connect email → AiMemo for travel, finance, experiments, and wellness support.</p>
+      <p>
+        <span data-i18n="footerLineOne">Powered by Lazying Art ·</span>
+        <a href="https://lazying.art" style="color: inherit;">lazying.art</a>
+      </p>
+      <p data-i18n="footerLineTwo">Connect email → AiMemo for travel, finance, experiments, and wellness support.</p>
     </footer>
   </div>
+
+  <script>
+    const translations = {
+      en: {
+        domainBadge: "memo.lazying.art",
+        heroTitle: "AiMemo — Your conversational ledger",
+        heroDescription:
+          "Built from the ideas in AISecretary and IdeasGlass, AiMemo listens to emails, voice notes, and rapid chat updates. It stores every mention of travel plans, experiments, fitness, or expenditure in a living, queryable memory table so that you can respond with clarity and confidence.",
+        missionTitle: "Purposeful automation",
+        missionText:
+          "AiMemo is a guided AI secretary that turns natural language into structured knowledge. It connects to your inbox, translates conversations into table rows, and keeps every goal, calorie tally, expense, and idea in a place you can query instantly.",
+        requestAccess: "Request access",
+        readPhilosophy: "Read philosophy",
+        philosophyTitle: "Design logic",
+        philosophyParagraphOne:
+          "This repo is the launchpad for AiMemo; the IdeasGlass memo project houses the LLM trigger and table export work. AiMemo blends email leadership from AISecretary, itinerary-focused sections, and the memory-first philosophy from IdeasGlass so that you can stay ahead of every plan.",
+        philosophyParagraphTwo:
+          "The goal is a single assistant that routes natural language to precise tables, keeps conversations legible, and augments an inbox with actionable insight. memo.lazying.art is the home of that vision.",
+        footerLineOne: "Powered by Lazying Art ·",
+        footerLineTwo: "Connect email → AiMemo for travel, finance, experiments, and wellness support.",
+        features: [
+          {
+            title: "Conversation logging",
+            body: "Every chat, lab note, or trip update lands in a shared memory table that updates in real time.",
+          },
+          {
+            title: "Expense tracking",
+            body: "Tell AiMemo about payments or invoices and watch it slot the numbers into ledgers you can export.",
+          },
+          {
+            title: "Fitness & calories",
+            body: "Track workouts, meals, and calorie targets while the assistant summarizes streaks and recommendations.",
+          },
+          {
+            title: "Travel & lab notes",
+            body: "Capture itineraries, lab observations, and hitting milestones without hunting for notes later.",
+          },
+          {
+            title: "Natural language → tables",
+            body: "AiMemo parses intents, fills columns, and keeps your data ready for queries or exports.",
+          },
+          {
+            title: "AI secretary DNA",
+            body: "Built on the proof-of-concept email triage from AISecretary; now refocused on rich memory ingestion.",
+          },
+        ],
+        timeline: [
+          {
+            label: "Trigger",
+            copy: "Inbound email, voice note, or quick chat (WeChat, Teams, or Messenger) is mirrored into AiMemo through IdeasGlass.",
+          },
+          {
+            label: "Interpret",
+            copy: "../IdeasGlass/backend/memo normalizes the story into intent, tags, and data points.",
+          },
+          {
+            label: "Store",
+            copy: "The assistant writes concise rows into the memo table, keeps running totals, and stores metadata for experiments.",
+          },
+          {
+            label: "Respond",
+            copy: "AiMemo clarifies next steps, drafts replies, and surfaces signals for your travel, gym, or workday flow.",
+          },
+        ],
+      },
+      zh: {
+        domainBadge: "memo.lazying.art",
+        heroTitle: "AiMemo — 你的会话账本",
+        heroDescription:
+          "继承 AISecretary 与 IdeasGlass 的理念，AiMemo 监听邮件、语音笔记和快速对话。它将旅行计划、实验记录、健身与开销，保存到可查询的记忆表格中，让你随时回应并保持清晰。",
+        missionTitle: "目的驱动的自动化",
+        missionText:
+          "AiMemo 是一个引导式 AI 秘书，将自然语言转化为结构化知识。它连接收件箱，将对话转写为表格行，并将每个目标、热量、支出与想法保存在一个可即时查询的位置。",
+        requestAccess: "申请访问",
+        readPhilosophy: "阅读理念",
+        philosophyTitle: "设计逻辑",
+        philosophyParagraphOne:
+          "这个仓库是 AiMemo 的起点；IdeasGlass 的 memo 项目承载了 LLM 触发与表格导出。AiMemo融合了 AISecretary 的邮箱思维、行程聚焦片段和 IdeasGlass 的记忆优先哲学，帮助你提前掌控每个计划。",
+        philosophyParagraphTwo:
+          "目标是一个将自然语言引导至精准表格的助手，保持对话清晰，并为收件箱提供可执行的洞见。memo.lazying.art 是这份设想的落脚点。",
+        footerLineOne: "Powered by Lazying Art ·",
+        footerLineTwo: "连接邮件 → AiMemo，支持旅行、财务、实验室与健康管理。",
+        features: [
+          {
+            title: "聊天入库",
+            body: "每次聊天、实验记录或旅行更新都会进入一个实时刷新的共享记忆表。",
+          },
+          {
+            title: "记账",
+            body: "告诉 AiMemo 支出与发票，它会把数字填入可导出的账本。",
+          },
+          {
+            title: "健身与热量",
+            body: "追踪锻炼、餐食与热量目标，助手会总结坚持情况与建议。",
+          },
+          {
+            title: "旅行与实验",
+            body: "捕捉行程、实验观察与里程碑，无需事后翻找笔记。",
+          },
+          {
+            title: "自然语言 → 表格",
+            body: "AiMemo 解析意图，填充列，并保持数据随时可查询或导出。",
+          },
+          {
+            title: "AI 秘书基因",
+            body: "基于 AISecretary 的收件箱分拣概念，现聚焦于丰富的记忆摄取。",
+          },
+        ],
+        timeline: [
+          {
+            label: "触发",
+            copy: "来自邮箱、语音或快速对话（微信、Teams、Messenger）通过 IdeasGlass 镜像至 AiMemo。",
+          },
+          {
+            label: "理解",
+            copy: "../IdeasGlass/backend/memo 将故事规范成意图、标签与数据点。",
+          },
+          {
+            label: "储存",
+            copy: "助手把简明条目写入 memo 表，维护累计数据并保存实验元信息。",
+          },
+          {
+            label: "回应",
+            copy: "AiMemo 梳理下一步、草拟回复，并为旅行、健身与工作流提供信号。",
+          },
+        ],
+      },
+    };
+
+    const featuresGrid = document.getElementById("featuresGrid");
+    const timeline = document.getElementById("timeline");
+
+    function renderFeatures(items) {
+      featuresGrid.innerHTML = items
+        .map(
+          (item) => `
+            <article>
+              <h3>${item.title}</h3>
+              <p>${item.body}</p>
+            </article>
+          `
+        )
+        .join("");
+    }
+
+    function renderTimeline(items) {
+      timeline.innerHTML = items
+        .map(
+          (item) => `
+            <article>
+              <strong>${item.label}</strong>
+              <p>${item.copy}</p>
+            </article>
+          `
+        )
+        .join("");
+    }
+
+    function applyLanguage(lang) {
+      const data = translations[lang] || translations.en;
+      document.querySelectorAll("[data-i18n]").forEach((el) => {
+        const key = el.getAttribute("data-i18n");
+        if (key && data[key]) {
+          el.textContent = data[key];
+        }
+      });
+      renderFeatures(data.features);
+      renderTimeline(data.timeline);
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const select = document.getElementById("languageSelect");
+      const stored = localStorage.getItem("memoLang") || "en";
+      select.value = stored;
+      applyLanguage(stored);
+      select.addEventListener("change", (event) => {
+        const nextLang = event.target.value;
+        localStorage.setItem("memoLang", nextLang);
+        applyLanguage(nextLang);
+      });
+    });
+  </script>
 </body>
 </html>
