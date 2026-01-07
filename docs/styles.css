@@ -68,6 +68,19 @@ header p {
   margin-top: 1rem;
 }
 
+.domain-badge {
+  align-self: flex-start;
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid rgba(92, 69, 255, 0.25);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: var(--accent);
+  background: rgba(92, 69, 255, 0.08);
+}
+
 .cta {
   padding: 0.95rem 1.6rem;
   border-radius: 999px;
