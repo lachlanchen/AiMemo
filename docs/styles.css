@@ -1,11 +1,10 @@
 :root {
-  color-scheme: dark;
-  --bg: #04060c;
-  --panel: rgba(14, 16, 27, 0.85);
-  --accent: #9b8bff;
-  --accent-strong: #f57bff;
-  --text: #f4f5ff;
-  --muted: #adb0c7;
+  --bg: #f9f8ff;
+  --panel: #ffffff;
+  --accent: #5c45ff;
+  --accent-strong: #ff6fb3;
+  --text: #0f1320;
+  --muted: #5d6675;
   font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
 }
 
@@ -15,9 +14,8 @@
 
 body {
   margin: 0;
-  background: radial-gradient(circle at top right, rgba(155, 139, 255, 0.25), transparent 45%),
-    radial-gradient(circle at 20% 20%, rgba(245, 123, 255, 0.25), transparent 40%),
-    var(--bg);
+  background: radial-gradient(circle at top right, rgba(92, 69, 255, 0.15), transparent 45%),
+    radial-gradient(circle at 20% 20%, rgba(0, 198, 255, 0.12), transparent 40%), var(--bg);
   color: var(--text);
 }
 
@@ -35,7 +33,7 @@ header {
   background: var(--panel);
   padding: clamp(1.5rem, 4vw, 3rem);
   border-radius: 32px;
-  box-shadow: 0 25px 60px rgba(4, 6, 12, 0.5);
+  box-shadow: 0 20px 40px rgba(15, 19, 32, 0.08);
 }
 
 header .hero-logo {
@@ -48,8 +46,8 @@ header .hero-logo img {
   width: 52px;
   height: 52px;
   border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  background: #000;
+  border: 1px solid rgba(92, 69, 255, 0.3);
+  background: #fff;
 }
 
 header h1 {
@@ -81,18 +79,20 @@ header p {
 
 .cta.primary {
   background: linear-gradient(135deg, var(--accent), var(--accent-strong));
-  color: #050205;
+  color: #fff;
+  border-color: transparent;
 }
 
 .cta.secondary {
-  border-color: rgba(255, 255, 255, 0.25);
+  border-color: rgba(15, 19, 32, 0.25);
+  background: rgba(255, 255, 255, 0.8);
 }
 
 section {
   background: var(--panel);
   border-radius: 28px;
   padding: clamp(1.5rem, 3vw, 2.5rem);
-  box-shadow: 0 20px 60px rgba(4, 6, 12, 0.45);
+  box-shadow: 0 15px 30px rgba(15, 19, 32, 0.08);
 }
 
 section h2 {
@@ -115,10 +115,10 @@ section p {
 }
 
 .features article {
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(92, 69, 255, 0.08);
   padding: 1rem;
   border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(92, 69, 255, 0.15);
 }
 
 .features h3 {
@@ -139,11 +139,11 @@ section p {
 .timeline article {
   padding: 1rem;
   border-radius: 18px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(92, 69, 255, 0.15);
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
-  background: rgba(0, 0, 0, 0.05);
+  background: rgba(255, 255, 255, 0.9);
 }
 
 .timeline strong {
