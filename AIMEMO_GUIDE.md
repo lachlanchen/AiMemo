@@ -4,6 +4,8 @@
 - Always run `git pull --ff-only` before edits, then `git commit` + `git push` after each change set.
 - Keep Ubuntu and macOS in sync; after pushing on one machine, pull on the other before continuing work.
 - macOS-only sync details and simulator commands live in `macOS_config.md` (gitignored).
+- Record run commands for each service (backend, PWA, iOS, Android) and the active conda env in `references/run-notes.md`.
+- Keep a root conda export up to date: `conda env export -n ai > environment.yml`.
 
 ## Platform Strategy
 - Design the backend and PWA first, then mirror those features to iOS and Android.

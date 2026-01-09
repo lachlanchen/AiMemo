@@ -12,6 +12,8 @@
 - Use `EchoMind/` (chat.lazying.art) as the reference implementation; copy/port submodules (LLM, TTS/STT, chat) when needed.
 - `EchoMind/` and `IdeasGlass/` are local reference folders and are gitignored.
 - Keep clear, top-level folders for each target: `backend/`, `pwa/`, `ios/`, `android/` to keep development isolated and predictable.
+- Always capture the run command for each service (backend, PWA, iOS, Android) and the active conda env in `references/run-notes.md`.
+- Keep a root conda export up to date: `conda env export -n ai > environment.yml`.
 
 ## Project Structure & Module Organization
 - `docs/`: Public website for memo.lazying.art (static HTML/CSS).
