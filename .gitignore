@@ -4,12 +4,26 @@ __pycache__/
 .mypy_cache/
 .pytest_cache/
 .ruff_cache/
+*.egg-info/
 
 # Node / Expo
 node_modules/
 app/.expo/
 app/dist/
 app/.expo-shared/
+
+# iOS (SwiftUI)
+ios/DerivedData/
+ios/*.xcodeproj/
+ios/*.xcworkspace/
+ios/.build/
+
+# Android (Studio/Gradle)
+android/.gradle/
+android/.idea/
+android/local.properties
+android/build/
+android/app/build/
 
 # Env & tooling
 .env

@@ -30,6 +30,23 @@ These notes capture the commands and fixes used during local setup/troubleshooti
 - Serve locally (any static server works):
   - `cd /home/lachlan/ProjectsLFS/AiMemo/pwa && python -m http.server 8090`
 
+## iOS (SwiftUI)
+
+- Generate Xcode project:
+  - `cd /home/lachlan/ProjectsLFS/AiMemo/ios && xcodegen generate`
+
+- Open in Xcode:
+  - `open /home/lachlan/ProjectsLFS/AiMemo/ios/AiMemo.xcodeproj`
+
+- Update API base URL:
+  - `ios/AiMemo/Resources/Info.plist` -> `API_BASE_URL`
+
+## Android (Compose)
+
+- Open `android/` in Android Studio and sync Gradle.
+- Update API base URL:
+  - `android/app/src/main/res/values/strings.xml` -> `api_base_url`
+
 ## Backend (Tornado API)
 
 - Activate env and install backend in editable mode:
