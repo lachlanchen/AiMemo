@@ -17,6 +17,7 @@ python -m aimemo.app
 Set these in `.env`:
 
 - `DATABASE_URL` (PostgreSQL, async): `postgresql+asyncpg://USER:PASS@HOST:5432/aimemo`
+  - If your shell has `DATABASE_URL` set already, it overrides `.env`. Make sure it uses `postgresql+asyncpg://`.
 - `JWT_SECRET`: long random string
 - `CORS_ALLOW_ORIGINS`: JSON array of allowed origins
 

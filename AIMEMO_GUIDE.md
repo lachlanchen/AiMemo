@@ -11,6 +11,7 @@
 ## Platform Strategy
 - Design the backend and PWA first, then mirror those features to iOS and Android.
 - Keep PWA, iOS, and Android behavior aligned by reusing the same API contracts and data models.
+- Implement features in PWA, iOS, and Android together to avoid drift.
 - Maintain clear, top-level folders for each target to ease development: `backend/`, `pwa/`, `ios/`, `android/`.
 
 ## Core Product Requirements

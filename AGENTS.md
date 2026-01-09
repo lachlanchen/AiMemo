@@ -8,6 +8,7 @@
 - macOS pull via SSH: `ssh lachlanchen@192.168.1.122` then `cd /Users/lachlanchen/Local/AiMemo && git pull --ff-only` (see `macOS_config.md`).
 - macOS pull one-liner: `ssh lachlanchen@192.168.1.122 'cd /Users/lachlanchen/Local/AiMemo && git pull --ff-only'`
 - Build backend + PWA first, then keep iOS/Android aligned with the same API contracts and data models.
+- Develop PWA, iOS, and Android in parallel for each feature to keep parity from day one.
 - Product goal: chat-based memo app with collaboration; backend AI summarizes chats into tables, docs, calendar items, and reminders.
 - Auth/data: Google + Apple login, register/login/logout/reset; PostgreSQL primary DB + local/offline storage; consistent subscriptions across platforms.
 - Use `EchoMind/` (chat.lazying.art) as the reference implementation; copy/port submodules (LLM, TTS/STT, chat) when needed.

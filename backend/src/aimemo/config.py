@@ -51,6 +51,19 @@ class Settings(BaseSettings):
     def validate_cors_allow_origins(cls, value):
         return cls._parse_list(value)
 
+    @field_validator("database_url", mode="before")
+    @classmethod
+    def validate_database_url(cls, value):
+        if not isinstance(value, str):
+            return value
+        if value.startswith("postgresql://"):
+            return "postgresql+asyncpg://" + value[len("postgresql://") :]
+        if value.startswith("postgres://"):
+            return "postgresql+asyncpg://" + value[len("postgres://") :]
+        if "psycopg2" in value:
+            raise ValueError("Use postgresql+asyncpg:// (psycopg2 is not supported on Python 3.13)")
+        return value
+
 
 @lru_cache(maxsize=1)
 def get_settings() -> Settings:

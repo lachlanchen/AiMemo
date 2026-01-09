@@ -15,6 +15,9 @@ These notes capture the commands and fixes used during local setup/troubleshooti
 - Health check:
   - `curl http://localhost:8799/health`
 
+- If you see a psycopg2 import error on Python 3.13, your `DATABASE_URL` is using a sync driver.
+  Use `postgresql+asyncpg://...` and ensure no shell `DATABASE_URL` overrides `.env`.
+
 - Export conda environment (keep `environment.yml` up to date):
   - `conda env export -n ai > /home/lachlan/ProjectsLFS/AiMemo/environment.yml`
 
