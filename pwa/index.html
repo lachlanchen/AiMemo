@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AiMemo</title>
+    <meta name="description" content="AiMemo — conversational ledger" />
+    <link rel="manifest" href="manifest.json" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <noscript>AiMemo requires JavaScript to run.</noscript>
+    <div class="app-shell" id="app">
+      <header class="app-header">
+        <div>
+          <p class="app-kicker">MEMO.LAZYING.ART</p>
+          <h1>AiMemo</h1>
+          <p class="subtitle">Your conversational ledger</p>
+        </div>
+        <button class="ghost" id="logout-btn" type="button" hidden>Log out</button>
+      </header>
+
+      <main>
+        <section class="card" id="auth-card">
+          <div class="segmented">
+            <button class="segmented-btn is-active" data-auth="login" type="button">Sign in</button>
+            <button class="segmented-btn" data-auth="register" type="button">Create account</button>
+          </div>
+
+          <form id="auth-form">
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" required />
+            </div>
+            <div class="field" id="name-field" hidden>
+              <label for="display_name">Name</label>
+              <input id="display_name" name="display_name" type="text" autocomplete="name" />
+            </div>
+            <div class="field">
+              <label for="password">Password</label>
+              <input id="password" name="password" type="password" autocomplete="current-password" required />
+            </div>
+            <button class="primary" type="submit">Continue</button>
+            <p class="helper" id="auth-message"></p>
+          </form>
+
+          <div class="divider">or</div>
+          <div class="oauth">
+            <div id="google-button"></div>
+            <button class="apple" id="apple-button" type="button">Continue with Apple</button>
+          </div>
+          <p class="helper" id="oauth-message"></p>
+        </section>
+
+        <section class="card app-main" id="main-card" hidden>
+          <div class="tab-content is-active" data-tab-view="ideas">
+            <h2>Ideas</h2>
+            <p>Capture the first spark. This space will hold structured idea notes.</p>
+          </div>
+          <div class="tab-content" data-tab-view="chat">
+            <h2>Chat</h2>
+            <p>Start a conversation and invite collaborators to co-edit your memory log.</p>
+          </div>
+          <div class="tab-content" data-tab-view="studio">
+            <h2>Studio</h2>
+            <p>Generate summaries, tables, and reports from your conversations.</p>
+          </div>
+          <div class="tab-content" data-tab-view="settings">
+            <h2>Settings</h2>
+            <p class="helper" id="user-summary">Signed in.</p>
+          </div>
+        </section>
+      </main>
+
+      <nav class="tab-bar" id="tab-bar" hidden>
+        <button class="tab is-active" data-tab="ideas" type="button">Ideas</button>
+        <button class="tab" data-tab="chat" type="button">Chat</button>
+        <button class="tab" data-tab="studio" type="button">Studio</button>
+        <button class="tab" data-tab="settings" type="button">Settings</button>
+      </nav>
+    </div>
+
+    <script src="config.js"></script>
+    <script>
+      window.__APP_CONFIG__ = window.__APP_CONFIG__ || { API_BASE_URL: "http://localhost:8799" };
+    </script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script src="https://appleid.cdn-apple.com/appleauth/static/jsapi/appleid/1/en_US/appleid.auth.js" async defer></script>
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -19,6 +19,8 @@
 ## Project Structure & Module Organization
 - `docs/`: Public website for memo.lazying.art (static HTML/CSS).
 - `references/`: Legacy docs and run notes (see `references/run-notes.md`).
+- `backend/`: New Tornado + Postgres backend (auth, API).
+- `pwa/`: New PWA shell (login + Ideas/Chat/Studio/Settings tabs).
 - `aimemo-legacy/`: Legacy codebase to refactor/replace. Contains:
   - `aimemo-legacy/app/`: Expo React Native + web client.
   - `aimemo-legacy/backend/`: Tornado API server (Python).
@@ -26,6 +28,8 @@
 - `README.md`: High-level overview; keep at repo root.
 
 ## Build, Test, and Development Commands
+- Backend (new): `cd backend && pip install -e . && python -m aimemo.app`
+- PWA (new): `cd pwa && python -m http.server 8090`
 - Backend (legacy): `cd aimemo-legacy/backend && pip install -e . && APP_PORT=8799 python -m aisecretary.app`
 - Frontend (legacy): `cd aimemo-legacy/app && EXPO_PUBLIC_API_URL=http://localhost:8799 npx expo start --web`
 - Lint (legacy): `cd aimemo-legacy/app && npm run lint`

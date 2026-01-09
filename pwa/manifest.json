@@ -1,0 +1,9 @@
+{
+  "name": "AiMemo",
+  "short_name": "AiMemo",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#f4f5f7",
+  "theme_color": "#2f6fed",
+  "icons": []
+}

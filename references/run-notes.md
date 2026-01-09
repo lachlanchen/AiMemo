@@ -1,6 +1,31 @@
-# AiMemo legacy run notes
+# AiMemo run notes
 
 These notes capture the commands and fixes used during local setup/troubleshooting.
+
+## New backend (Tornado + Postgres)
+
+- Activate env and install backend in editable mode:
+  - `conda activate ai`
+  - `cd /home/lachlan/ProjectsLFS/AiMemo/backend`
+  - `pip install -e .`
+
+- Start the backend:
+  - `python -m aimemo.app`
+
+- Health check:
+  - `curl http://localhost:8799/health`
+
+- Export conda environment (keep `environment.yml` up to date):
+  - `conda env export -n ai > /home/lachlan/ProjectsLFS/AiMemo/environment.yml`
+
+## PWA (static)
+
+- Create local config:
+  - `cp /home/lachlan/ProjectsLFS/AiMemo/pwa/config.example.js /home/lachlan/ProjectsLFS/AiMemo/pwa/config.js`
+  - Fill in `API_BASE_URL`, `GOOGLE_CLIENT_ID`, `APPLE_CLIENT_ID`, `APPLE_REDIRECT_URI`.
+
+- Serve locally (any static server works):
+  - `cd /home/lachlan/ProjectsLFS/AiMemo/pwa && python -m http.server 8090`
 
 ## Backend (Tornado API)
 
