@@ -1,4 +1,5 @@
 import json
+from pathlib import Path
 from functools import lru_cache
 from typing import List, Optional
 
@@ -6,8 +7,11 @@ from pydantic import Field, field_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
+ENV_PATH = Path(__file__).resolve().parents[2] / ".env"
+
+
 class Settings(BaseSettings):
-    model_config = SettingsConfigDict(env_file=".env", extra="ignore")
+    model_config = SettingsConfigDict(env_file=str(ENV_PATH), extra="ignore")
 
     host: str = Field("0.0.0.0", alias="APP_HOST")
     port: int = Field(8799, alias="APP_PORT")
