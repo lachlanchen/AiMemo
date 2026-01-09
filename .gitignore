@@ -18,5 +18,5 @@ app/.expo-shared/
 # Local-only docs
 docs/current-environment-inventory.md
 macOS_config.md
-EchoMind/
-IdeasGlass/
+EchoMind
+IdeasGlass
