@@ -13,6 +13,8 @@ Jetpack Compose app wired to the Tornado backend.
 2. Let Android Studio sync Gradle.
 3. Run on emulator or device.
 
+If Gradle sync fails, run `./gradlew --version` once to bootstrap the wrapper.
+
 ## Configure
 
 Update `android/app/src/main/res/values/strings.xml`:

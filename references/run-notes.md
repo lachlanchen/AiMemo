@@ -44,6 +44,7 @@ These notes capture the commands and fixes used during local setup/troubleshooti
 ## Android (Compose)
 
 - Open `android/` in Android Studio and sync Gradle.
+- If Gradle sync fails, run `cd /home/lachlan/ProjectsLFS/AiMemo/android && ./gradlew --version`.
 - Update API base URL:
   - `android/app/src/main/res/values/strings.xml` -> `api_base_url`
 
