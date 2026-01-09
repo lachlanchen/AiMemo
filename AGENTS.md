@@ -6,6 +6,7 @@
 - Keep Ubuntu and macOS in sync; see `macOS_config.md` (gitignored) for macOS sync + simulator notes.
 - macOS pull example: `cd /Users/lachlanchen/Local/AiMemo && git pull --ff-only`
 - macOS pull via SSH: `ssh lachlanchen@192.168.1.122` then `cd /Users/lachlanchen/Local/AiMemo && git pull --ff-only` (see `macOS_config.md`).
+- macOS pull one-liner: `ssh lachlanchen@192.168.1.122 'cd /Users/lachlanchen/Local/AiMemo && git pull --ff-only'`
 - Build backend + PWA first, then keep iOS/Android aligned with the same API contracts and data models.
 - Product goal: chat-based memo app with collaboration; backend AI summarizes chats into tables, docs, calendar items, and reminders.
 - Auth/data: Google + Apple login, register/login/logout/reset; PostgreSQL primary DB + local/offline storage; consistent subscriptions across platforms.
