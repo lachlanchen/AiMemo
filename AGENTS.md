@@ -1,0 +1,39 @@
+# Repository Guidelines
+
+## Project Structure & Module Organization
+- `docs/`: Public website for memo.lazying.art (static HTML/CSS).
+- `references/`: Legacy docs and run notes (see `references/run-notes.md`).
+- `aimemo-legacy/`: Legacy codebase to refactor/replace. Contains:
+  - `aimemo-legacy/app/`: Expo React Native + web client.
+  - `aimemo-legacy/backend/`: Tornado API server (Python).
+  - `aimemo-legacy/scripts/`, `aimemo-legacy/ai_requests/`, `aimemo-legacy/figs/`.
+- `README.md`: High-level overview; keep at repo root.
+
+## Build, Test, and Development Commands
+- Backend (legacy):
+  - `cd aimemo-legacy/backend && pip install -e .`
+  - `APP_PORT=8799 python -m aisecretary.app`
+  - Health check: `curl http://localhost:8799/health`
+- Frontend (legacy):
+  - `cd aimemo-legacy/app && EXPO_PUBLIC_API_URL=http://localhost:8799 npx expo start --web`
+  - Lint: `cd aimemo-legacy/app && npm run lint`
+- Combined session (legacy): `aimemo-legacy/scripts/dev-session.sh`
+
+## Coding Style & Naming Conventions
+- Python (backend): 4-space indentation; follow `black`/`ruff` settings in `aimemo-legacy/backend/pyproject.toml`.
+- TypeScript/React (app): 2-space indentation; follow existing ESLint config in `aimemo-legacy/app/package.json`.
+- Prefer clear, domain-specific names (e.g., `auth`, `calendar`, `memo`).
+
+## Testing Guidelines
+- No automated tests are configured in this repo.
+- Run manual smoke checks after changes:
+  - Backend: `/health` responds.
+  - Frontend: login screen loads and API calls succeed.
+
+## Commit & Pull Request Guidelines
+- Commit messages follow imperative, concise verbs (e.g., `Add ...`, `Fix ...`, `Update ...`).
+- PRs should include: summary of changes, affected areas (`docs/`, `aimemo-legacy/`), and screenshots for UI updates.
+
+## Configuration & Security Tips
+- Secrets live in `aimemo-legacy/.env` (e.g., `JWT_SECRET`, `DATABASE_AI_URL`).
+- Do not commit secrets; use local `.env` overrides for ports and CORS.
