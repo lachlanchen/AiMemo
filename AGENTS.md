@@ -4,6 +4,7 @@
 - Canonical guide: `AIMEMO_GUIDE.md` (mirrored here for quick reference).
 - Always `git pull --ff-only` before edits, then `git commit` + `git push` after each change set.
 - Keep Ubuntu and macOS in sync; see `macOS_config.md` (gitignored) for macOS sync + simulator notes.
+- macOS pull example: `cd /Users/lachlanchen/Local/AiMemo && git pull --ff-only`
 - Build backend + PWA first, then keep iOS/Android aligned with the same API contracts and data models.
 - Product goal: chat-based memo app with collaboration; backend AI summarizes chats into tables, docs, calendar items, and reminders.
 - Auth/data: Google + Apple login, register/login/logout/reset; PostgreSQL primary DB + local/offline storage; consistent subscriptions across platforms.
