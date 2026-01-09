@@ -8,6 +8,7 @@
 ## Platform Strategy
 - Design the backend and PWA first, then mirror those features to iOS and Android.
 - Keep PWA, iOS, and Android behavior aligned by reusing the same API contracts and data models.
+- Maintain clear, top-level folders for each target to ease development: `backend/`, `pwa/`, `ios/`, `android/`.
 
 ## Core Product Requirements
 - A memo app with chat-based conversations and shared collaboration.

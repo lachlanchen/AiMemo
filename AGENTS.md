@@ -11,6 +11,7 @@
 - Auth/data: Google + Apple login, register/login/logout/reset; PostgreSQL primary DB + local/offline storage; consistent subscriptions across platforms.
 - Use `EchoMind/` (chat.lazying.art) as the reference implementation; copy/port submodules (LLM, TTS/STT, chat) when needed.
 - `EchoMind/` and `IdeasGlass/` are local reference folders and are gitignored.
+- Keep clear, top-level folders for each target: `backend/`, `pwa/`, `ios/`, `android/` to keep development isolated and predictable.
 
 ## Project Structure & Module Organization
 - `docs/`: Public website for memo.lazying.art (static HTML/CSS).
