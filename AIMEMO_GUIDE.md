@@ -13,6 +13,7 @@
 - A memo app with chat-based conversations and shared collaboration.
 - Users can create conversations, invite others, and see history.
 - Backend AI summarizes chats into tables, documents, calendar items, and reminders.
+- Use `EchoMind/` (chat.lazying.art) as the reference implementation; copy/port submodules (LLM, TTS/STT, chat) when needed.
 
 ## Auth, Subscription, and Data
 - Provide login, registration, logout, and password reset flows.

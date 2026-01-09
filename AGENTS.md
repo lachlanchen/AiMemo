@@ -9,6 +9,7 @@
 - Build backend + PWA first, then keep iOS/Android aligned with the same API contracts and data models.
 - Product goal: chat-based memo app with collaboration; backend AI summarizes chats into tables, docs, calendar items, and reminders.
 - Auth/data: Google + Apple login, register/login/logout/reset; PostgreSQL primary DB + local/offline storage; consistent subscriptions across platforms.
+- Use `EchoMind/` (chat.lazying.art) as the reference implementation; copy/port submodules (LLM, TTS/STT, chat) when needed.
 - `EchoMind/` and `IdeasGlass/` are local reference folders and are gitignored.
 
 ## Project Structure & Module Organization
