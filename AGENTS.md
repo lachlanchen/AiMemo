@@ -1,5 +1,10 @@
 # Repository Guidelines
 
+## Repository Sync & Workflow
+- Always `git pull --ff-only` before edits, and `git commit` + `git push` after each change set.
+- Keep Ubuntu and macOS in sync; after changes on one machine, pull on the other before continuing work.
+- `EchoMind/` and `IdeasGlass/` are local reference folders and are gitignored.
+
 ## Project Structure & Module Organization
 - `docs/`: Public website for memo.lazying.art (static HTML/CSS).
 - `references/`: Legacy docs and run notes (see `references/run-notes.md`).
@@ -23,6 +28,17 @@
 - Python (backend): 4-space indentation; follow `black`/`ruff` settings in `aimemo-legacy/backend/pyproject.toml`.
 - TypeScript/React (app): 2-space indentation; follow existing ESLint config in `aimemo-legacy/app/package.json`.
 - Prefer clear, domain-specific names (e.g., `auth`, `calendar`, `memo`).
+
+## Product Direction (AI Memo)
+- Build a production-ready memo app with chat-based conversations and collaboration.
+- Backend AI summarizes chats and outputs structured tables, docs, calendar items, and reminders.
+- Develop the backend + PWA first, then keep iOS/Android in sync with the PWA implementation.
+
+## Auth, Subscription, and Data
+- Provide login, registration, logout, and password reset flows.
+- Support Google and Apple login.
+- Use PostgreSQL as the primary database, plus local/offline storage where appropriate.
+- Ensure subscription flows are reasonable and consistent across PWA, iOS, and Android.
 
 ## Testing Guidelines
 - No automated tests are configured in this repo.

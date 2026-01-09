@@ -17,3 +17,6 @@ app/.expo-shared/
 .DS_Store
 # Local-only docs
 docs/current-environment-inventory.md
+macOS_config.md
+EchoMind/
+IdeasGlass/
